@@ -2,13 +2,12 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>PAL - LogIn</title>
-    <link rel="stylesheet" href="./css/LoginPage.css">
+    <title>PAL - Registration</title>
+    <link rel="stylesheet" href="./css/RegistrationPage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
-<script src="https://kit.fontawesome.com/4cc5659e6a.js" crossorigin="anonymous"></script>
 
 <body>
 <div class="main-box">
@@ -22,19 +21,24 @@
 
         <label for="login-password" class="input-label">Пароль:</label>
         <input type="password" name="password" class="login-input" id="login-password">
+
+        <label for="login-first-name" class="input-label">Имя:</label>
+        <input type="text" name="first-name" class="login-input" id="login-first-name">
+
+        <label for="login-last-name" class="input-label">Фамилия:</label>
+        <input type="text" name="last-name" class="login-input" id="login-last-name">
+
+        <label for="login-phone" class="input-label">Номер телефона:</label>
+        <input type="tel" name="phone" class="login-input" id="login-phone">
+
+        <label for="login-email" class="input-label">Почта:</label>
+        <input type="email" name="email" class="login-input" id="login-email">
     </div>
 
     <div class="buttons-box">
-        <div class="login-button">
-            <h1 class="login-button-text">Войти</h1>
+        <div class="signup-button">
+            <h1 class="signup-button-text">Зарегистрироваться</h1>
         </div>
-
-        <button class="login-google">
-            <i class="fa-brands fa-google" style="margin-right: 10px; font-size: 16px"></i>
-            Продолжить через Google
-        </button>
-
-        <h1 class="center-h1">Ещё не зарегистрированы?</h1>
     </div>
 </div>
 </body>

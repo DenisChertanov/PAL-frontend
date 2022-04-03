@@ -81,21 +81,12 @@
     border: 1px solid #d72323;
     border-radius: 5px;
     background-color: #d72323;
-}
 
-.signup-button-text {
+    margin-bottom: 13px;
+
     color: white;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-weight: normal;
     text-align: center;
-
-    /* Выравнивание по центру */
-    width: 100%;
-    margin-top: auto;
-    margin-bottom: auto;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
 }

@@ -1,0 +1,131 @@
+.main-box {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 111px 216px 109px;
+    /* Выравнивание элементов в сетке по центру */
+    justify-items: center;
+
+    /* Выравнивание сетки по центру */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image-box {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.bio-box {
+    grid-column: 1;
+    grid-row: 2;
+
+    /* Выравние БИО по середине ячейки сетки */
+    margin-top: auto;
+    margin-bottom: auto;
+    height: fit-content;
+    width: 100%;
+}
+
+.buttons-box {
+    grid-column: 1;
+    grid-row: 3;
+
+    /* Выравние по середине ячейки сетки */
+    margin-top: auto;
+    margin-bottom: auto;
+    height: fit-content;
+    width: 100%;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-input {
+    width: 100%;
+    height: 35px;
+    /* Свойство чтобы ширина 100% учитывала рамки */
+    box-sizing: border-box;
+
+    border: 1px solid #d72323;
+    border-radius: 5px;
+
+    margin-top: 6px;
+    margin-bottom: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.input-label {
+    margin-left: 5px;
+
+    color: #d72323;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+.login-button {
+    width: 100%;
+    height: 35px;
+    /* Свойство чтобы ширина 100% учитывала рамки */
+    box-sizing: border-box;
+
+    border: 1px solid #d72323;
+    border-radius: 5px;
+
+    margin-bottom: 13px;
+}
+
+.login-google {
+    width: 100%;
+    height: 35px;
+    /* Свойство чтобы ширина 100% учитывала рамки */
+    box-sizing: border-box;
+
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+
+    border: 1px solid #d72323;
+    border-radius: 5px;
+    background-color: #d72323;
+
+    margin-bottom: 13px;
+}
+
+.login-button-text {
+    color: #d72323;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+
+    /* Выравнивание по центру */
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-h1 {
+    color: #d72323;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+
+    margin: 0;
+}

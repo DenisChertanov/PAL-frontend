@@ -226,6 +226,7 @@
 
 .filter-item {
     margin-top: 10px;
+    position: relative;
 }
 
 .filter-item-title {
@@ -396,4 +397,215 @@
 
     background-color: white;
     border: none;
+}
+
+.filter-item-one-element {
+    margin-top: 10px;
+
+    box-sizing: border-box;
+    /*border-radius: 10px 10px 0 0;*/
+    border-radius: 10px;
+    border: 1px solid #d72323;
+
+    height: fit-content;
+    min-height: 40px;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 310px 40px;
+
+    overflow: hidden;
+    max-height: 95px;
+}
+
+.filter-item-one-element-header {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #d72323;
+}
+
+.dropdown-one-item-menu {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: calc(100%);
+    width: 100%;
+    padding: 5px 10px 10px;
+
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #d72323;
+    background-color: white;
+    box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, .15);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.filter-item-one-element > .filter-multi-list-arrow:focus + .dropdown-one-item-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.filter-item-one-element:focus-within {
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+}
+
+.dropdown-one-item {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.dropdown-one-item-menu-item {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #d72323;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    width: fit-content;
+}
+
+.dropdown-hr {
+    margin-top: 10px;
+    margin-bottom: 0;
+    width: 100%;
+
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #d72323;
+    /*border-top: 1px solid black;*/
+}
+
+.dropdown-genres-menu {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: calc(100%);
+    width: 100%;
+    padding: 0 0 10px;
+
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #d72323;
+    background-color: white;
+    box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, .15);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.scroll-div {
+    max-height: 120px;
+
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll-div::-webkit-scrollbar {
+    display: none;
+}
+
+.dropdown-genre-item {
+    margin: 10px 10px 0;
+}
+
+.dropdown-search-menu {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: black;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+    background-color: white;
+    border-bottom: 1px solid #d72323;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.filter-item-multi-list > .filter-multi-list-plus:focus + .dropdown-genres-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.filter-item-multi-list:focus-within {
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+}
+
+.dropdown-people-menu {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: calc(100%);
+    width: 100%;
+    padding: 0 0 10px;
+
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #d72323;
+    background-color: white;
+    box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, .15);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.dropdown-people-item {
+    margin: 10px 10px 0;
+}
+
+.filter-item-multi-list > .filter-multi-list-plus:focus + .dropdown-people-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-people-name-div {
+    display: flex;
+    width: 100%;
+}
+
+.dropdown-people-name {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #d72323;
+
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dropdown-user-logo {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+
+    margin-top: auto;
+    margin-bottom: auto;
 }

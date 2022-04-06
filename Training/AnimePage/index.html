@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>PAL - AnimePage</title>
+    <link rel="stylesheet" href="../SearchPage/css/SearchPage.css">
+    <link rel="stylesheet" href="./css/AnimePage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<script src="https://kit.fontawesome.com/4cc5659e6a.js" crossorigin="anonymous"></script>
+
+<body>
+<div class="main-box">
+    <div class="image-box">
+        <img src="../SearchPage/img/pal-logo.svg" alt="" class="image">
+    </div>
+
+    <div class="navigation-box">
+        <button class="navigation-button-search">Поиск</button>
+        <button class="navigation-button-people">Люди</button>
+        <img src="../SearchPage/img/user-image.svg" alt="" class="navigation-user-image">
+    </div>
+
+    <div class="search-box">
+        <input type="text" name="search" class="search-input" placeholder="Найти аниме по названию">
+    </div>
+
+    <div class="anime-info">
+        <img src="../SearchPage/img/dr-stone.jpeg" alt="" class="anime-info-image" height="395px" width="280px">
+
+        <div class="anime-info-short">
+            <h1 class="anime-title">Доктор Стоун</h1>
+            <h1 class="anime-mark">9.21</h1>
+
+            <div class="anime-characteristic-list">
+                <div class="anime-characteristic">
+                    <h1 class="anime-characteristic-key">Статус:</h1>
+                    <h1 class="anime-characteristic-value">Вышел</h1>
+                </div>
+                <div class="anime-characteristic">
+                    <h1 class="anime-characteristic-key">Год:</h1>
+                    <h1 class="anime-characteristic-value">2019</h1>
+                </div>
+                <div class="anime-characteristic">
+                    <h1 class="anime-characteristic-key">Сезон:</h1>
+                    <h1 class="anime-characteristic-value">Лето</h1>
+                </div>
+                <div class="anime-characteristic">
+                    <h1 class="anime-characteristic-key">Возрастной рейтинг:</h1>
+                    <h1 class="anime-characteristic-value">PG-13 (от 13 лет)</h1>
+                </div>
+                <div class="anime-characteristic">
+                    <h1 class="anime-characteristic-key">Жанры:</h1>
+                    <h1 class="anime-characteristic-value">Сёнэн, Комедия, Приключения, Фантастика</h1>
+                </div>
+                <div class="anime-characteristic">
+                    <h1 class="anime-characteristic-key">Студия:</h1>
+                    <h1 class="anime-characteristic-value">TMS Entertainment</h1>
+                </div>
+                <div class="anime-characteristic">
+                    <h1 class="anime-characteristic-key">Режиссер:</h1>
+                    <h1 class="anime-characteristic-value">Инно Синъя</h1>
+                </div>
+                <div class="anime-characteristic">
+                    <h1 class="anime-characteristic-key">Тип:</h1>
+                    <h1 class="anime-characteristic-value">Сериал</h1>
+                </div>
+                <div class="anime-characteristic">
+                    <h1 class="anime-characteristic-key">Серии:</h1>
+                    <h1 class="anime-characteristic-value">24</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="anime-description">
+            <h1 class="anime-description-header">Краткое описание:</h1>
+            <h1 class="anime-description-body">Внезапное астрономическое явление странным образом подействовало на живых существ всей планеты. Животные, птицы, люди стали камнем. Во сне, на бегу, во время крика… застыли вечным изваянием и люди. Многие погибли, но большинство оказалось запертыми внутри своих бездвижных тел на сотни, тысячи лет. Каменный плен жесток, но также внезапно, как возник, он прошел для Тайдзю Оки. Этот парень - обычный старшеклассник и случившееся застало его в тот момент, когда он решился признаться девушке. Чувство к ней помогло ему сохранить разум, но отыскав возлюбленную, он обнаруживает, что та – все еще статуя. Впадать в отчаяние рано, Тайдзю встречает своего школьного друга Сэнку. Вместе им предстоит выжить на Земле в эпоху нового каменного века. © Nomia</h1>
+        </div>
+
+        <div class="anime-user-mark">
+            <h1 class="anime-user-mark-header">Собственная оценка:</h1>
+            <input type="text" class="anime-user-mark-input" placeholder="-">
+        </div>
+
+        <div class="playlists">
+            <i class="fa-solid fa-plus" style="color: #d72323; font-size: 20px; margin-bottom: auto; margin-top: auto"></i>
+            <h1 class="add-to-playlist">Добавить в плейлист</h1>
+        </div>
+
+        <div class="anime-user-review">
+            <h1 class="anime-user-review-header">Собственный отзыв:</h1>
+            <div class="review-textarea-div">
+                <textarea name="anime-user-review-text" class="anime-user-review-input"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-box">
+        <h1 class="filter-header">ФИЛЬТР АНИМЕ</h1>
+
+        <div class="filter-item">
+            <h1 class="filter-item-title">Выбрать жанры</h1>
+            <div class="filter-item-multi-list">
+                <button class="filter-multi-list-plus">
+                    <i class="fa-solid fa-plus" style="color: #d72323"></i>
+                </button>
+
+                <div class="dropdown-genres-menu">
+                    <input type="text" class="dropdown-search-menu" placeholder="Искать">
+
+                    <div class="scroll-div">
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Андроиды</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item" style="color: #9A9999">Сражения на мечах</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Самураи</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item" style="color: #9A9999">Экшен</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Вампиры</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Гарем</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Сенэн</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Меха</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Школьная жизнь</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Обыденность</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Фэнтези</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Исекай</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-buttons-grid">
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Демоны
+                    </button>
+
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Экшен
+                    </button>
+
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Сражения на мечах
+                    </button>
+
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Экшен
+                    </button>
+
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Сражения на мечах
+                    </button>
+
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Сражения на мечах
+                    </button>
+
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Сражения на мечах
+                    </button>
+
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Сражения на мечах
+                    </button>
+
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Сражения на мечах
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <h1 class="filter-item-title">Убрать жанры</h1>
+            <div class="filter-item-multi-list">
+                <button class="filter-multi-list-plus">
+                    <i class="fa-solid fa-plus" style="color: #d72323"></i>
+                </button>
+
+                <div class="dropdown-genres-menu">
+                    <input type="text" class="dropdown-search-menu" placeholder="Искать">
+
+                    <div class="scroll-div">
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item" style="color: #9A9999">Андроиды</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Сражения на мечах</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Самураи</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Экшен</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Вампиры</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Гарем</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Сенэн</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Меха</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Школьная жизнь</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Обыденность</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Фэнтези</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-genre-item">
+                            <h1 class="dropdown-one-item-menu-item">Исекай</h1>
+                            <hr class="dropdown-hr">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-buttons-grid">
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        Андроиды
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <h1 class="filter-item-title">Тип аниме</h1>
+            <div class="filter-item-one-element">
+                <button class="filter-multi-list-arrow">
+                    <i class="fa-solid fa-angle-down" style="color: #d72323"></i>
+                </button>
+
+                <div class="dropdown-one-item-menu">
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item" style="color: #9A9999">Сериал</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Полнометражный фильм</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Короткометражный фильм</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">OVA</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Special</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Малометражный сериал</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">ONA</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+                </div>
+
+                <h1 class="filter-item-one-element-header">Сериал</h1>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <h1 class="filter-item-title">Статус аниме</h1>
+            <div class="filter-item-one-element">
+                <button class="filter-multi-list-arrow">
+                    <i class="fa-solid fa-angle-down" style="color: #d72323"></i>
+                </button>
+
+                <div class="dropdown-one-item-menu">
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item" style="color: #9A9999">Вышел</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Онгоинг</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Анонс</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+                </div>
+
+                <h1 class="filter-item-one-element-header">Вышел</h1>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <h1 class="filter-item-title">Год</h1>
+            <div class="year-input-grid">
+                <input type="text" name="year-from" class="year-input" placeholder="от">
+                <input type="text" name="year-to" class="year-input" placeholder="до">
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <h1 class="filter-item-title">Сортировать по</h1>
+            <div class="filter-item-one-element">
+                <button class="filter-multi-list-arrow">
+                    <i class="fa-solid fa-angle-down" style="color: #d72323"></i>
+                </button>
+
+                <div class="dropdown-one-item-menu">
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item" style="color: #9A9999">Рейтингу</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Любимым жанрам</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Дате выхода</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Алфовиту от А до Я</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+
+                    <div class="dropdown-one-item">
+                        <h1 class="dropdown-one-item-menu-item">Алфовиту от Я до А</h1>
+                        <hr class="dropdown-hr">
+                    </div>
+                </div>
+
+                <h1 class="filter-item-one-element-header">Рейтингу</h1>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <h1 class="filter-item-title">Просмотрено другими</h1>
+            <div class="filter-item-multi-list">
+                <button class="filter-multi-list-plus">
+                    <i class="fa-solid fa-plus" style="color: #d72323"></i>
+                </button>
+
+                <div class="dropdown-people-menu">
+                    <input type="text" class="dropdown-search-menu" placeholder="Искать">
+
+                    <div class="scroll-div">
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/denis-logo.jpg" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name" style="color: #9A9999">Денис Чертанов (@DChertanov)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/nocmok-logo.jpg" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/3-logo.jpg" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/4-logo.jpg" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/user-logo.png" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/user-logo.png" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/user-logo.png" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/user-logo.png" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/user-logo.png" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/user-logo.png" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+
+                        <div class="dropdown-people-item">
+                            <div class="dropdown-people-name-div">
+                                <img src="../SearchPage/img/user-logo.png" alt="" class="dropdown-user-logo">
+                                <h1 class="dropdown-people-name">Николай Сафонов (@nocmok)</h1>
+                            </div>
+                            <hr class="dropdown-hr">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-buttons-grid">
+                    <button class="filter-buttons-item">
+                        <i class="fa-solid fa-xmark" style="font-size: 10px; margin-right: 3px"></i>
+                        @DChertanov
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="checkbox-filter-item">
+                <button class="filter-checkbox" onclick=""></button>
+                <h1 class="filter-checkbox-label">Убрать просмотренное</h1>
+            </div>
+        </div>
+
+        <button class="apply-filter-button">ПРИМЕНИТЬ</button>
+    </div>
+</div>
+</body>
+
+</html>

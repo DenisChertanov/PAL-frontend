@@ -1,0 +1,45 @@
+.anime-block {
+    padding-left: 20px;
+    display: block;
+}
+
+.anime-block-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.anime-block-mark {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+
+    margin: 10px auto 0;
+
+    padding: 5px 12px;
+    width: fit-content;
+
+    background-color: #d72323;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.anime-block-year {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: bolder;
+    text-align: center;
+    color: #9A9999;
+
+    margin-top: 5px;
+    margin-bottom: 0;
+
+    align-self: center;
+}

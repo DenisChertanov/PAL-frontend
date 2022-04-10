@@ -1,0 +1,13 @@
+.main-box {
+    display: grid;
+    grid-template-columns: 960px 405px;
+    grid-template-rows: 60px 60px 850px 25px;
+    /* Выравнивание элементов в сетке по центру */
+    /*justify-items: center;*/
+
+    /* Выравнивание сетки по центру */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,63 @@
+.image-box {
+    grid-column: 1;
+    grid-row: 1;
+
+    padding-left: 20px;
+}
+
+.pal-logog {
+    display: block;
+}
+
+.navigation-box {
+    grid-column: 2;
+    grid-row: 1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 60px;
+    /* Выравнивание элементов в сетке по центру */
+    align-items: center;
+}
+
+.navigation-button-search {
+    grid-column: 1;
+    grid-row: 1;
+
+    margin: 0 0 0 150px;
+    /* Свойство чтобы ширина 100% учитывала рамки */
+    box-sizing: border-box;
+    padding: 0;
+
+    border: none;
+
+    background-color: white;
+    color: #d72323;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+}
+
+.navigation-button-people {
+    grid-column: 2;
+    grid-row: 1;
+
+    margin: 0 0 0 30px;
+    /* Свойство чтобы ширина 100% учитывала рамки */
+    box-sizing: border-box;
+    padding: 0;
+
+    border: none;
+
+    background-color: white;
+    color: #d72323;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+}
+
+.navigation-user-image {
+    grid-column: 3;
+    grid-row: 1;
+
+    margin: 0 0 0 50px;
+    display: block;
+}

@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 import GenreFilterItem from "./GenreFilterItem";
 import GenreApplyButton from "./GenreApplyButton";
 
-function FilterItemGenres({ needAdd, genres }) {
-  const genreFilterItems = genres.map((genre) => (
-    <GenreFilterItem key={genre.id} genre={genre} />
+function FilterItemGenres({ needAdd, genres, appliedGenres, ...props }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const getAppliedGenres = appliedGenres.map((appliedGenre) => (
+    <GenreApplyButton
+      key={appliedGenre.id}
+      genre={appliedGenre}
+      removeGenre={props.removeGenre}
+    />
   ));
 
   return (
@@ -14,29 +20,20 @@ function FilterItemGenres({ needAdd, genres }) {
         {needAdd ? "Выбрать жанры" : "Убрать жанры"}
       </h1>
 
-      <div className="filter-item-multi-list">
-        <button className="filter-multi-list-plus">
+      <div
+        className="filter-item-multi-list"
+        style={isOpen ? { borderRadius: "10px 10px 0 0" } : {}}
+      >
+        <button
+          className="filter-multi-list-plus"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           <i className="fa-solid fa-plus" style={{ color: "#d72323" }}></i>
         </button>
 
-        <div className="dropdown-genres-menu">
-          <input
-            type="text"
-            className="dropdown-search-menu"
-            placeholder="Искать"
-          />
+        {isOpen && props.children}
 
-          <div className="scroll-div">{genreFilterItems}</div>
-
-          <div className="scroll-div"></div>
-        </div>
-
-        {/* <div className="filter-buttons-grid">
-          <GenreApplyButton />
-          <GenreApplyButton />
-          <GenreApplyButton />
-          <GenreApplyButton />
-        </div> */}
+        <div className="filter-buttons-grid">{getAppliedGenres}</div>
       </div>
     </div>
   );

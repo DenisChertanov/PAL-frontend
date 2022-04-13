@@ -1,18 +1,18 @@
 import React from "react";
 
-function GenreApplyButton({ genre, ...props }) {
+function StateApplyButton({ state, ...props }) {
   return (
     <button
       className="filter-buttons-item"
-      onClick={() => props.removeGenre(genre)}
+      onClick={() => props.removeAppliedState(state)}
     >
       <i
         className="fa-solid fa-xmark"
         style={{ fontSize: "10px", marginRight: "7px" }}
       ></i>
-      {genre.name}
+      {state.name}
     </button>
   );
 }
 
-export default GenreApplyButton;
+export default StateApplyButton;

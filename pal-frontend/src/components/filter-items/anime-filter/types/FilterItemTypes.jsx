@@ -1,27 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 
-import TypeFilterItem from "./TypeFilterItem";
+import TypeApplyButton from "./TypeApplyButton";
 
-function FilterItemtypes({ types }) {
-  const typeFilterItems = types.map((type) => (
-    <TypeFilterItem key={type.id} type={type} />
+function FilterItemtypes({ types, appliedTypes, ...props }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const getAppliedTypes = appliedTypes.map((appliedType) => (
+    <TypeApplyButton
+      key={appliedType.id}
+      type={appliedType}
+      removeAppliedType={props.removeAppliedType}
+    />
   ));
 
   return (
     <div className="filter-item">
       <h1 className="filter-item-title">Тип аниме</h1>
 
-      <div className="filter-item-one-element">
-        <button className="filter-multi-list-arrow">
+      <div
+        className="filter-item-one-element"
+        style={isOpen ? { borderRadius: "10px 10px 0 0" } : {}}
+      >
+        <button
+          className="filter-multi-list-arrow"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           <i
             className="fa-solid fa-angle-down"
             style={{ color: "#d72323" }}
           ></i>
         </button>
 
-        <div className="dropdown-one-item-menu">{typeFilterItems}</div>
+        {isOpen && props.children}
 
-        <h1 className="filter-item-one-element-header">Сериал</h1>
+        <div className="filter-buttons-grid">{getAppliedTypes}</div>
       </div>
     </div>
   );

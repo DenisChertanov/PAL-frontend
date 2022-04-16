@@ -13,7 +13,7 @@ import TypesDropdownMenu from "./dropdown-menu/TypesDropdownMenu";
 import StatesDropdownMenu from "./dropdown-menu/StatesDropdownMenu";
 import SortsDropdownMenu from "./dropdown-menu/SortsDropdownMenu";
 
-function FilterBox() {
+function FilterBox({ ...props }) {
   const [includeGenres, setIncludeGenres] = useState([]);
   const [excludeGenres, setExcludeGenres] = useState([]);
   const [appliedIncludeGenres, setAppliedIncludeGenres] = useState([]);
@@ -252,7 +252,21 @@ function FilterBox() {
         </div>
       </div>
 
-      <button className="apply-filter-button">ПРИМЕНИТЬ</button>
+      <button
+        className="apply-filter-button"
+        onClick={() =>
+          props.setFilterForAppliedFilters(
+            appliedIncludeGenres.map((item) => item.id),
+            appliedExcludeGenres.map((item) => item.id),
+            appliedTypes.map((item) => item.id),
+            appliedStates.map((item) => item.id),
+            yearFrom,
+            yearTo
+          )
+        }
+      >
+        ПРИМЕНИТЬ
+      </button>
     </div>
   );
 }

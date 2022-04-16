@@ -4,7 +4,7 @@ import AnimeBlock from "./AnimeBlock";
 
 import "./css/AnimeBox.css";
 
-function AnimeBox({ page, ...props }) {
+function AnimeBox({ page, appliedFilters, ...props }) {
   const [animeList, setAnimeList] = useState([]);
 
   const animeBlocks = animeList.map((anime) => (
@@ -15,10 +15,13 @@ function AnimeBox({ page, ...props }) {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ pageNumber: page.pageNumber - 1, pageSize: 8 }),
+      body: JSON.stringify(appliedFilters),
     };
 
-    fetch("http://localhost:8081/api/public/anime/get-by-page", requestOptions)
+    fetch(
+      "http://localhost:8081/api/public/anime-search/search",
+      requestOptions
+    )
       .then((result) => result.json())
       .then((animePage) => {
         setAnimeList(animePage.animeList);
@@ -28,7 +31,7 @@ function AnimeBox({ page, ...props }) {
         console.log(error);
         setAnimeList([]);
       });
-  }, [page.pageNumber]);
+  }, [appliedFilters]);
 
   return <div className="anime-box">{animeBlocks}</div>;
 }

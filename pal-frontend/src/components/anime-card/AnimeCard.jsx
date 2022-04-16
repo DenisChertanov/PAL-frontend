@@ -42,6 +42,22 @@ function AnimeCard({ anime }) {
             characteristicKey={"Серии:"}
             characteristicValue={anime.episodes}
           />
+          <AnimeCharacteristic
+            characteristicKey={"Сезон:"}
+            characteristicValue={anime.season}
+          />
+          <AnimeCharacteristic
+            characteristicKey={"Возрастной рейтинг:"}
+            characteristicValue={anime.ageRating}
+          />
+          <AnimeCharacteristic
+            characteristicKey={"Длительность:"}
+            characteristicValue={anime.episodeDuration}
+          />
+          <AnimeCharacteristic
+            characteristicKey={"Озвучка:"}
+            characteristicValue={anime.voice}
+          />
         </div>
       </div>
 

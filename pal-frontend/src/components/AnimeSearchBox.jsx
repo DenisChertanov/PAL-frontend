@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./css/AnimeSearchBox.css";
 
 function AnimeSearchBox({ ...props }) {
   const [namePrefix, setNamePrefix] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="search-box">
@@ -22,6 +24,8 @@ function AnimeSearchBox({ ...props }) {
             props.setNamePrefix(event.target.value);
             setNamePrefix("");
             event.preventDefault();
+
+            navigate("/anime");
           }
         }}
       />

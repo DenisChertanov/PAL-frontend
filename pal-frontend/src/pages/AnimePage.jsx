@@ -14,7 +14,6 @@ function AnimePage() {
       .then((result) => result.json())
       .then((animeOutDto) => {
         setAnime(animeOutDto);
-        console.log(animeOutDto);
       })
       .catch((error) => {
         console.log(error);

@@ -12,6 +12,7 @@ import GenresDropdownMultiMenu from "./dropdown-menu/GenresDropdownMultiMenu";
 import TypesDropdownMenu from "./dropdown-menu/TypesDropdownMenu";
 import StatesDropdownMenu from "./dropdown-menu/StatesDropdownMenu";
 import SortsDropdownMenu from "./dropdown-menu/SortsDropdownMenu";
+import { Link } from "react-router-dom";
 
 function FilterBox({ ...props }) {
   const [includeGenres, setIncludeGenres] = useState([]);
@@ -252,21 +253,23 @@ function FilterBox({ ...props }) {
         </div>
       </div>
 
-      <button
-        className="apply-filter-button"
-        onClick={() =>
-          props.setFilterForAppliedFilters(
-            appliedIncludeGenres.map((item) => item.id),
-            appliedExcludeGenres.map((item) => item.id),
-            appliedTypes.map((item) => item.id),
-            appliedStates.map((item) => item.id),
-            yearFrom,
-            yearTo
-          )
-        }
-      >
-        ПРИМЕНИТЬ
-      </button>
+      <Link to={"/anime"}>
+        <button
+          className="apply-filter-button"
+          onClick={() =>
+            props.setFilterForAppliedFilters(
+              appliedIncludeGenres.map((item) => item.id),
+              appliedExcludeGenres.map((item) => item.id),
+              appliedTypes.map((item) => item.id),
+              appliedStates.map((item) => item.id),
+              yearFrom,
+              yearTo
+            )
+          }
+        >
+          ПРИМЕНИТЬ
+        </button>
+      </Link>
     </div>
   );
 }

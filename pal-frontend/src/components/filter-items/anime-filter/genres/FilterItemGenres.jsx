@@ -27,6 +27,7 @@ function FilterItemGenres({ needAdd, genres, appliedGenres, ...props }) {
         <button
           className="filter-multi-list-plus"
           onClick={() => setIsOpen(!isOpen)}
+          style={{ cursor: "pointer" }}
         >
           <i className="fa-solid fa-plus" style={{ color: "#d72323" }}></i>
         </button>

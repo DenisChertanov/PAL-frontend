@@ -11,3 +11,12 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}

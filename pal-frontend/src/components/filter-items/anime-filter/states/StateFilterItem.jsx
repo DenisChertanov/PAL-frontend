@@ -5,6 +5,7 @@ function StateFilterItem({ state, ...props }) {
     <div
       className="dropdown-genre-item"
       onClick={() => !state.isApplied && props.addAppliedState(state)}
+      style={{ cursor: "pointer" }}
     >
       <h1
         className="dropdown-one-item-menu-item"

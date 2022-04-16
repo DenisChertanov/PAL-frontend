@@ -24,6 +24,7 @@ function FilterItemtypes({ types, appliedTypes, ...props }) {
         <button
           className="filter-multi-list-arrow"
           onClick={() => setIsOpen(!isOpen)}
+          style={{ cursor: "pointer" }}
         >
           <i
             className="fa-solid fa-angle-down"

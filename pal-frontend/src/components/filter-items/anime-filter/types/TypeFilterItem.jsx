@@ -5,6 +5,7 @@ function TypeFilterItem({ type, ...props }) {
     <div
       className="dropdown-genre-item"
       onClick={() => !type.isApplied && props.addAppliedType(type)}
+      style={{ cursor: "pointer" }}
     >
       <h1
         className="dropdown-one-item-menu-item"

@@ -1,0 +1,8 @@
+.search-anime-page {
+    grid-row: 2 / 4;
+    grid-column: 1;
+
+    display: grid;
+    grid-template-columns: 960px;
+    grid-template-rows: 850px 25px;
+}

@@ -5,7 +5,7 @@
 
 .filter-box {
     grid-column: 2;
-    grid-row: 3 / 5;
+    grid-row: 2 / 4;
 
     padding-left: 50px;
 
@@ -84,6 +84,8 @@
 
     height: 50px;
     width: 100%;
+
+    cursor: pointer;
 }
 
 .year-input-grid {
@@ -262,17 +264,6 @@
     transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
 }
 
-/* .filter-item-one-element > .filter-multi-list-arrow:focus + .dropdown-one-item-menu {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-} */
-
-/* .filter-item-one-element:focus-within {
-    border-radius: 10px 10px 0 0;
-    border-bottom: none;
-} */
-
 .dropdown-one-item {
     margin-top: 10px;
     margin-bottom: 0;
@@ -356,17 +347,6 @@
     border-left: none;
     border-right: none;
 }
-
-/* .filter-item-multi-list > .filter-multi-list-plus:focus + .dropdown-genres-menu {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-} */
-
-/* .filter-item-multi-list:focus-within {
-    border-radius: 10px 10px 0 0;
-    border-bottom: none;
-} */
 
 .dropdown-people-menu {
     position: absolute;

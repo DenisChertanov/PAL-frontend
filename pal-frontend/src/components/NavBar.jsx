@@ -4,12 +4,15 @@ import "./css/NavBar.css";
 
 import pal_logo from "../img/pal-logo.svg";
 import user_image from "../img/user-image.svg";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
     <React.Fragment>
       <div className="image-box">
-        <img src={pal_logo} className="pal-logo" />
+        <Link to={"/anime"}>
+          <img src={pal_logo} className="pal-logo" />
+        </Link>
       </div>
 
       <div className="navigation-box">

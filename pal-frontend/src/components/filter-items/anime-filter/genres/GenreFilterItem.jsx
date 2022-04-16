@@ -7,6 +7,7 @@ function GenreFilterItem({ genre, ...props }) {
       onClick={() => {
         !genre.isApplied && props.addGenre(genre);
       }}
+      style={{ cursor: "pointer" }}
     >
       <h1
         className="dropdown-one-item-menu-item"

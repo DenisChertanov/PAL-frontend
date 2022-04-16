@@ -28,7 +28,11 @@ function PageBox({ page, ...props }) {
         <button
           key={pageStub}
           className="page-button"
-          style={page.pageNumber === pageStub ? { color: "#d72323" } : {}}
+          style={
+            page.pageNumber === pageStub
+              ? { color: "#d72323", cursor: "pointer" }
+              : { cursor: "pointer" }
+          }
           onClick={() => props.setPageNumber(pageStub)}
         >
           {pageStub}
@@ -40,7 +44,7 @@ function PageBox({ page, ...props }) {
     <div className="page-box">
       <button
         className="page-button"
-        style={{ color: "#d72323", fontSize: "16px" }}
+        style={{ color: "#d72323", fontSize: "16px", cursor: "pointer" }}
         onClick={() => props.setPageNumber(page.pageNumber - 1)}
       >
         <i className="fa-solid fa-angle-left"></i>
@@ -50,7 +54,7 @@ function PageBox({ page, ...props }) {
 
       <button
         className="page-button"
-        style={{ color: "#d72323", fontSize: "16px" }}
+        style={{ color: "#d72323", fontSize: "16px", cursor: "pointer" }}
         onClick={() => props.setPageNumber(page.pageNumber + 1)}
       >
         <i className="fa-solid fa-angle-right"></i>

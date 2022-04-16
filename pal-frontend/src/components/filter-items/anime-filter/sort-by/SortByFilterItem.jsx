@@ -5,6 +5,7 @@ function SortByFilterItem({ sort, ...props }) {
     <div
       className="dropdown-genre-item"
       onClick={() => !sort.isApplied && props.applySort(sort)}
+      style={{ cursor: "pointer" }}
     >
       <h1
         className="dropdown-one-item-menu-item"

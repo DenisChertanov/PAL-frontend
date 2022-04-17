@@ -22,6 +22,7 @@ function AnimeSearchBox({ ...props }) {
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             props.setNamePrefix(event.target.value);
+            props.setPageNumber(1);
             setNamePrefix("");
             event.preventDefault();
 

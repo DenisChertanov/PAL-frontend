@@ -85,8 +85,14 @@ function SearchPage() {
 
   return (
     <div className="search-page-main-div">
-      <AnimeSearchBox setNamePrefix={setNamePrefix} />
-      <FilterBox setFilterForAppliedFilters={setFilterForAppliedFilters} />
+      <AnimeSearchBox
+        setNamePrefix={setNamePrefix}
+        setPageNumber={setPageNumber}
+      />
+      <FilterBox
+        setFilterForAppliedFilters={setFilterForAppliedFilters}
+        setPageNumber={setPageNumber}
+      />
 
       <Routes>
         <Route

@@ -256,7 +256,7 @@ function FilterBox({ ...props }) {
       <Link to={"/anime"}>
         <button
           className="apply-filter-button"
-          onClick={() =>
+          onClick={() => {
             props.setFilterForAppliedFilters(
               appliedIncludeGenres.map((item) => item.id),
               appliedExcludeGenres.map((item) => item.id),
@@ -264,8 +264,9 @@ function FilterBox({ ...props }) {
               appliedStates.map((item) => item.id),
               yearFrom,
               yearTo
-            )
-          }
+            );
+            props.setPageNumber(1);
+          }}
         >
           ПРИМЕНИТЬ
         </button>

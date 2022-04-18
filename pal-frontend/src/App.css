@@ -10,6 +10,9 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
+    padding-left: 0;
+    /* margin-top: 25px; */
 }
 
 a, a:hover, a:focus, a:active {
@@ -19,4 +22,12 @@ a, a:hover, a:focus, a:active {
 
 button {
     cursor: pointer;
+}
+
+input[readonly] {
+    cursor: default;
+}
+
+textarea[readonly] {
+    cursor: default;
 }

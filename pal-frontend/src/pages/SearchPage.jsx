@@ -8,7 +8,7 @@ import AnimeSearchBox from "../components/AnimeSearchBox.jsx";
 
 import "./css/SearchPage.css";
 
-function SearchPage() {
+function SearchPage({ authJwtToken, ...props }) {
   const [page, setPage] = useState({
     pageNumber: 1,
     totalPages: 0,
@@ -107,7 +107,7 @@ function SearchPage() {
             />
           }
         />
-        <Route path=":id" element={<AnimePage />} />
+        <Route path=":id" element={<AnimePage authJwtToken={authJwtToken} />} />
       </Routes>
     </div>
   );

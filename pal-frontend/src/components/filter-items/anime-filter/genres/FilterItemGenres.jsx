@@ -22,13 +22,14 @@ function FilterItemGenres({ needAdd, genres, appliedGenres, ...props }) {
 
       <div
         className="filter-item-multi-list"
-        style={isOpen ? { borderRadius: "10px 10px 0 0" } : {}}
+        style={
+          isOpen
+            ? { borderRadius: "10px 10px 0 0", cursor: "pointer" }
+            : { cursor: "pointer" }
+        }
+        onClick={() => setIsOpen(!isOpen)}
       >
-        <button
-          className="filter-multi-list-plus"
-          onClick={() => setIsOpen(!isOpen)}
-          style={{ cursor: "pointer" }}
-        >
+        <button className="filter-multi-list-plus">
           <i className="fa-solid fa-plus" style={{ color: "#d72323" }}></i>
         </button>
 

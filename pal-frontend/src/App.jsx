@@ -7,6 +7,7 @@ import "./App.css";
 import SearchPage from "./pages/SearchPage";
 import Layout from "./pages/Layout";
 import UserPage from "./pages/UserPage";
+import UserSearchPage from "./pages/UserSearchPage";
 
 function App() {
   const [authJwtToken, setAuthJwtToken] = useState(
@@ -27,6 +28,7 @@ function App() {
             path="user/:id"
             element={<UserPage authJwtToken={authJwtToken} />}
           />
+          <Route path="user-search" element={<UserSearchPage />} />
           <Route path="*" element={<p>Not found</p>} />
         </Route>
       </Routes>

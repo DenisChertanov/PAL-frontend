@@ -4,7 +4,10 @@ function TypeApplyButton({ type, ...props }) {
   return (
     <button
       className="filter-buttons-item"
-      onClick={() => props.removeAppliedType(type)}
+      onClick={(event) => {
+        props.removeAppliedType(type);
+        event.stopPropagation();
+      }}
     >
       <i
         className="fa-solid fa-xmark"

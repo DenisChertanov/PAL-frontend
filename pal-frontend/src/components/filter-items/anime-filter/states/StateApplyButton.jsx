@@ -4,7 +4,10 @@ function StateApplyButton({ state, ...props }) {
   return (
     <button
       className="filter-buttons-item"
-      onClick={() => props.removeAppliedState(state)}
+      onClick={(event) => {
+        props.removeAppliedState(state);
+        event.stopPropagation();
+      }}
     >
       <i
         className="fa-solid fa-xmark"

@@ -4,7 +4,7 @@ import AnimeBlock from "./AnimeBlock";
 
 import "./css/AnimeBox.css";
 
-function AnimeBox({ page, appliedFilters, ...props }) {
+function AnimeBox({ page, appliedFilters, authJwtToken, ...props }) {
   const [animeList, setAnimeList] = useState([]);
 
   const animeBlocks = animeList.map((anime) => (
@@ -14,7 +14,10 @@ function AnimeBox({ page, appliedFilters, ...props }) {
   useEffect(() => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer ".concat(authJwtToken),
+      },
       body: JSON.stringify(appliedFilters),
     };
 

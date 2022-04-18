@@ -63,7 +63,8 @@ function SearchPage({ authJwtToken, ...props }) {
     newIncludeTypes,
     newIncludeStates,
     newYearFrom,
-    newYearTo
+    newYearTo,
+    newExcludeWatched
   ) {
     const newAppliedFilters = { ...appliedFilters };
     newAppliedFilters.filter.includeGenres = newIncludeGenres;
@@ -72,11 +73,12 @@ function SearchPage({ authJwtToken, ...props }) {
     newAppliedFilters.filter.includeStates = newIncludeStates;
     newAppliedFilters.filter.yearFrom = newYearFrom;
     newAppliedFilters.filter.yearTo = newYearTo;
+    newAppliedFilters.filter.excludeWatched = newExcludeWatched;
 
     setAppliedFilters(newAppliedFilters);
   }
 
-  function setNamePrefix(newNamePrefix) {
+  function setNamePrefix(newNamePrefix, authJwtToken) {
     const newAppliedFilters = { ...appliedFilters };
     newAppliedFilters.filter.namePrefix = newNamePrefix;
 
@@ -104,6 +106,7 @@ function SearchPage({ authJwtToken, ...props }) {
               setNamePrefix={setNamePrefix}
               setTotalPages={setTotalPages}
               setPageNumber={setPageNumber}
+              authJwtToken={authJwtToken}
             />
           }
         />

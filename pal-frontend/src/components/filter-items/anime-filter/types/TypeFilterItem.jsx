@@ -4,7 +4,10 @@ function TypeFilterItem({ type, ...props }) {
   return (
     <div
       className="dropdown-genre-item"
-      onClick={() => !type.isApplied && props.addAppliedType(type)}
+      onClick={(event) => {
+        !type.isApplied && props.addAppliedType(type);
+        event.stopPropagation();
+      }}
       style={{ cursor: "pointer" }}
     >
       <h1

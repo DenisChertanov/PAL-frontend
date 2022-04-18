@@ -4,8 +4,9 @@ function GenreFilterItem({ genre, ...props }) {
   return (
     <div
       className="dropdown-genre-item"
-      onClick={() => {
+      onClick={(event) => {
         !genre.isApplied && props.addGenre(genre);
+        event.stopPropagation();
       }}
       style={{ cursor: "pointer" }}
     >

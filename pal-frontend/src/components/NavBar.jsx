@@ -16,8 +16,13 @@ function NavBar({ userId }) {
       </div>
 
       <div className="navigation-box">
-        <button className="navigation-button-search">Поиск</button>
-        <button className="navigation-button-people">Люди</button>
+        <Link to={"/anime"}>
+          <button className="navigation-button-search">Поиск</button>
+        </Link>
+
+        <Link to={"/user-search"}>
+          <button className="navigation-button-people">Люди</button>
+        </Link>
 
         <Link to={`/user/${userId}`}>
           <img src={user_image} className="navigation-user-image" />

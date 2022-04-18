@@ -19,12 +19,14 @@ function FilterItemStates({ states, appliedStates, ...props }) {
 
       <div
         className="filter-item-one-element"
-        style={isOpen ? { borderRadius: "10px 10px 0 0" } : {}}
+        style={
+          isOpen
+            ? { borderRadius: "10px 10px 0 0", cursor: "pointer" }
+            : { cursor: "pointer" }
+        }
+        onClick={() => setIsOpen(!isOpen)}
       >
-        <button
-          className="filter-multi-list-arrow"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="filter-multi-list-arrow">
           <i
             className="fa-solid fa-angle-down"
             style={{ color: "#d72323" }}

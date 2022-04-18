@@ -263,7 +263,8 @@ function FilterBox({ ...props }) {
               appliedTypes.map((item) => item.id),
               appliedStates.map((item) => item.id),
               yearFrom,
-              yearTo
+              yearTo,
+              excludeWatched
             );
             props.setPageNumber(1);
           }}

@@ -4,7 +4,10 @@ function GenreApplyButton({ genre, ...props }) {
   return (
     <button
       className="filter-buttons-item"
-      onClick={() => props.removeGenre(genre)}
+      onClick={(event) => {
+        props.removeGenre(genre);
+        event.stopPropagation();
+      }}
     >
       <i
         className="fa-solid fa-xmark"

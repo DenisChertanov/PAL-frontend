@@ -24,6 +24,9 @@ function GenresDropdownMultiMenu({ genres, ...props }) {
           setGenrePrefix(event.target.value);
           event.preventDefault();
         }}
+        onClick={(event) => {
+          event.stopPropagation();
+        }}
       />
 
       <div className="scroll-div">{genreFilterItems}</div>

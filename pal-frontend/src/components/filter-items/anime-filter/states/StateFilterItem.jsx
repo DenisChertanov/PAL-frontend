@@ -4,7 +4,10 @@ function StateFilterItem({ state, ...props }) {
   return (
     <div
       className="dropdown-genre-item"
-      onClick={() => !state.isApplied && props.addAppliedState(state)}
+      onClick={(event) => {
+        !state.isApplied && props.addAppliedState(state);
+        event.stopPropagation();
+      }}
       style={{ cursor: "pointer" }}
     >
       <h1

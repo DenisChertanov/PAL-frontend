@@ -14,7 +14,11 @@ function SearchAnimePage({ page, appliedFilters, authJwtToken, ...props }) {
         setTotalPages={props.setTotalPages}
         authJwtToken={authJwtToken}
       />
-      <PageBox page={page} setPageNumber={props.setPageNumber} />
+      <PageBox
+        page={page}
+        setPageNumber={props.setPageNumber}
+        style={{ gridRow: "2" }}
+      />
     </div>
   );
 }

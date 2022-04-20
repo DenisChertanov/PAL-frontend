@@ -1,21 +1,22 @@
-.user-card {
+.user-search-card {
     display: flex;
     height: fit-content;
 }
 
-.user-card-logo {
+.user-search-card-logo {
     height: 100px;
     width: 100px;
     border-radius: 100px;
+    display: block;
 }
 
-.user-card-info {
+.user-search-card-info {
     margin-left: 25px;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.user-card-username {
+.user-search-card-username {
     font-size: 12px;
     text-align: center;
     color: #9A9999;
@@ -23,7 +24,7 @@
     margin-top: 5px;
 }
 
-.user-card-icons-list {
+.user-search-card-icons-list {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -33,12 +34,12 @@
     grid-template-rows: 1fr;
 }
 
-.user-card-icon {
+.user-search-card-icon {
     display: inline-block;
 }
 
-.user-card-icon-image {
-    width: 100%;
+.user-search-card-icon-image {
+    width: auto;
     height: 25px;
 
     margin-left: auto;
@@ -47,7 +48,7 @@
     display: block;
 }
 
-.user-card-icon-text {
+.user-search-card-icon-text {
     font-size: 12px;
     width: 100%;
     text-align: center;

@@ -2,7 +2,7 @@ import React from "react";
 
 import "./css/UserSearchBox.css";
 
-function UserSearchBox({ namePrefix, setNamePrefix }) {
+function UserSearchBox({ namePrefix, setNamePrefix, ...props }) {
   return (
     <div className="user-search-box">
       <input
@@ -17,11 +17,9 @@ function UserSearchBox({ namePrefix, setNamePrefix }) {
         }}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
-            // props.setNamePrefix(event.target.value);
-            // props.setPageNumber(1);
-            // setNamePrefix("");
-            // event.preventDefault();
-            // navigate("/anime");
+            props.setNeedSearchNamePrefix(event.target.value);
+            props.setPageNumber(1);
+            event.preventDefault();
           }
         }}
       />

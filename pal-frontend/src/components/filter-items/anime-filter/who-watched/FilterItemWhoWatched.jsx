@@ -1,37 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
 import WhoWatchedFilterItem from "./WhoWatchedFilterItem";
 import WhoWatchedApplyButton from "./WhoWatchedApplyButton";
 
-import UserLogo from "../../../../img/denis-logo.jpg";
+function FilterItemWhoWatched({
+  watchedByUsers,
+  appliedWatchedByUsers,
+  ...props
+}) {
+  const [isOpen, setIsOpen] = useState(false);
 
-function FilterItemWhoWatched() {
+  const getAppliedWhoWatched = appliedWatchedByUsers.map((watchedByUser) => (
+    <WhoWatchedApplyButton
+      key={watchedByUser.userId}
+      user={watchedByUser}
+      removeWatchedByUser={props.removeWatchedByUser}
+    />
+  ));
+
   return (
     <div className="filter-item">
       <h1 className="filter-item-title">Просмотрено другими</h1>
-      <div className="filter-item-multi-list">
+
+      <div
+        className="filter-item-multi-list"
+        style={
+          isOpen
+            ? { borderRadius: "10px 10px 0 0", cursor: "pointer" }
+            : { cursor: "pointer" }
+        }
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <button className="filter-multi-list-plus">
           <i className="fa-solid fa-plus" style={{ color: "#d72323" }}></i>
         </button>
 
-        <div className="dropdown-people-menu">
-          <input
-            type="text"
-            className="dropdown-search-menu"
-            placeholder="Искать"
-          />
+        {isOpen && props.children}
 
-          <div className="scroll-div">
-            <WhoWatchedFilterItem userLogo={UserLogo} />
-            <WhoWatchedFilterItem userLogo={UserLogo} />
-            <WhoWatchedFilterItem userLogo={UserLogo} />
-            <WhoWatchedFilterItem userLogo={UserLogo} />
-          </div>
-        </div>
-
-        <div className="filter-buttons-grid">
-          <WhoWatchedApplyButton username={"@DChertanov"} />
-        </div>
+        <div className="filter-buttons-grid">{getAppliedWhoWatched}</div>
       </div>
     </div>
   );

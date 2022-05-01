@@ -28,6 +28,8 @@ function SearchPage({ authJwtToken, ...props }) {
       yearFrom: "",
       yearTo: "",
       namePrefix: "",
+      excludeWatched: false,
+      watchedByUsers: [],
     },
   });
 
@@ -64,7 +66,9 @@ function SearchPage({ authJwtToken, ...props }) {
     newIncludeStates,
     newYearFrom,
     newYearTo,
-    newExcludeWatched
+    newSortsBy,
+    newExcludeWatched,
+    newWatchedByUsers
   ) {
     const newAppliedFilters = { ...appliedFilters };
     newAppliedFilters.filter.includeGenres = newIncludeGenres;
@@ -73,7 +77,9 @@ function SearchPage({ authJwtToken, ...props }) {
     newAppliedFilters.filter.includeStates = newIncludeStates;
     newAppliedFilters.filter.yearFrom = newYearFrom;
     newAppliedFilters.filter.yearTo = newYearTo;
+    newAppliedFilters.filter.sortsBy = newSortsBy;
     newAppliedFilters.filter.excludeWatched = newExcludeWatched;
+    newAppliedFilters.filter.watchedByUsers = newWatchedByUsers;
 
     setAppliedFilters(newAppliedFilters);
   }

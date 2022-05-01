@@ -348,35 +348,15 @@
     border-right: none;
 }
 
-.dropdown-people-menu {
-    position: absolute;
-    z-index: 1000;
-    left: 0;
-    top: calc(100%);
-    width: 100%;
-    padding: 0 0 10px;
-
-    box-sizing: border-box;
-    border-radius: 0 0 10px 10px;
-    border: 1px solid #d72323;
-    background-color: white;
-    box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, .15);
-
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-20px);
-    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
-}
-
-.dropdown-people-item {
-    margin: 10px 10px 0;
-}
-
 /* .filter-item-multi-list > .filter-multi-list-plus:focus + .dropdown-people-menu {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
 } */
+
+.dropdown-people-item {
+    margin: 10px 10px 0;
+}
 
 .dropdown-people-name-div {
     display: flex;

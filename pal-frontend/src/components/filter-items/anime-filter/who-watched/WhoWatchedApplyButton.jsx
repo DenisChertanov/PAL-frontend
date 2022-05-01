@@ -1,13 +1,19 @@
 import React from "react";
 
-function WhoWatchedApplyButton({ username }) {
+function WhoWatchedApplyButton({ user, ...props }) {
   return (
-    <button className="filter-buttons-item">
+    <button
+      className="filter-buttons-item"
+      onClick={(event) => {
+        props.removeWatchedByUser(user);
+        event.stopPropagation();
+      }}
+    >
       <i
         className="fa-solid fa-xmark"
-        style={{ fontSize: "10px", marginRight: "3px" }}
+        style={{ fontSize: "10px", marginRight: "7px" }}
       ></i>
-      {username}
+      {"@".concat(user.userName)}
     </button>
   );
 }

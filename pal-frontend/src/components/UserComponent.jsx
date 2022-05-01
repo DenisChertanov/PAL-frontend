@@ -17,7 +17,7 @@ function UserComponent({
   lastWatchedAnimes,
 }) {
   const lastWatchedList = lastWatchedAnimes.map((anime) => (
-    <Link to={`/anime/${anime.animeId}`}>
+    <Link key={anime.animeId} to={`/anime/${anime.animeId}`}>
       <LastWatchedAnimeBlock key={anime.animeId} anime={anime} />
     </Link>
   ));

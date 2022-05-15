@@ -1,11 +1,13 @@
 import React from "react";
 
-function WhoWatchedFilterItem({ user, ...props }) {
+function WhoWatchedFilterItem({ user, appliedWatchedByUsersIds, ...props }) {
   return (
     <div
       className="dropdown-people-item"
       onClick={(event) => {
-        !user.isApplied && props.addWatchedByUser(user);
+        !user.isApplied &&
+          !appliedWatchedByUsersIds.includes(user.userId) &&
+          props.addWatchedByUser(user);
         event.stopPropagation();
       }}
       style={{ cursor: "pointer" }}
@@ -14,7 +16,11 @@ function WhoWatchedFilterItem({ user, ...props }) {
         <img src={user.imageUrl} className="dropdown-user-logo" />
         <h1
           className="dropdown-people-name"
-          style={user.isApplied ? { color: "#9A9999" } : {}}
+          style={
+            user.isApplied || appliedWatchedByUsersIds.includes(user.userId)
+              ? { color: "#9A9999" }
+              : {}
+          }
         >
           {user.firstName
             .concat(" ")

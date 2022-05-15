@@ -100,6 +100,7 @@ function SearchPage({ authJwtToken, ...props }) {
       <FilterBox
         setFilterForAppliedFilters={setFilterForAppliedFilters}
         setPageNumber={setPageNumber}
+        authJwtToken={authJwtToken}
       />
 
       <Routes>

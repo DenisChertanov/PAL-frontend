@@ -1,22 +1,25 @@
 import React, { useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import "../css/WhoWatchedDropdownMultiMenu.css";
 import WhoWatchedFilterItem from "../filter-items/anime-filter/who-watched/WhoWatchedFilterItem";
 
-function WhoWatchedDropdownMultiMenu({ watchedByUsers, ...props }) {
-  const [userPrefix, setUserPrefix] = useState("");
-
-  const whoWatchedFilterItems = watchedByUsers
-    .filter((user) =>
-      user.firstName.concat(" ").concat(user.lastName).startsWith(userPrefix)
-    )
-    .map((user) => (
-      <WhoWatchedFilterItem
-        key={user.userId}
-        user={user}
-        addWatchedByUser={props.addWatchedByUser}
-      />
-    ));
+function WhoWatchedDropdownMultiMenu({
+  watchedByUsers,
+  userPrefix,
+  appliedWatchedByUsers,
+  ...props
+}) {
+  const whoWatchedFilterItems = watchedByUsers.map((user) => (
+    <WhoWatchedFilterItem
+      key={user.userId}
+      user={user}
+      addWatchedByUser={props.addWatchedByUser}
+      appliedWatchedByUsersIds={appliedWatchedByUsers.map(
+        (user) => user.userId
+      )}
+    />
+  ));
 
   return (
     <div className="dropdown-people-menu">
@@ -26,7 +29,7 @@ function WhoWatchedDropdownMultiMenu({ watchedByUsers, ...props }) {
         placeholder="Искать"
         value={userPrefix}
         onChange={(event) => {
-          setUserPrefix(event.target.value);
+          props.setNewUserPrefix(event.target.value);
           event.preventDefault();
         }}
         onClick={(event) => {
@@ -34,7 +37,16 @@ function WhoWatchedDropdownMultiMenu({ watchedByUsers, ...props }) {
         }}
       />
 
-      <div className="scroll-div">{whoWatchedFilterItems}</div>
+      <div className="scroll-div" id="scrollableDiv">
+        <InfiniteScroll
+          dataLength={whoWatchedFilterItems.length}
+          next={props.fetchNextPageWatchedByUsers}
+          hasMore={props.hasMoreWatchedByUsers()}
+          scrollableTarget="scrollableDiv"
+        >
+          {whoWatchedFilterItems}
+        </InfiniteScroll>
+      </div>
     </div>
   );
 }

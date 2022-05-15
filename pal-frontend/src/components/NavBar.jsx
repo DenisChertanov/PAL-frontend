@@ -27,7 +27,7 @@ function NavBar({ userId }) {
         <Link to={`/user/${userId}`}>
           {/* <img src={user_image} className="navigation-user-image" /> */}
           <img
-            src="http://localhost:9000/images-bucket/images/65249707-be33-47bc-b16f-978da8c53205/rascal-does-not-dream-of-a-dreaming-girl.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio_access_key%2F20220429%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220429T093921Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=3de643c38cb1e9c0224d67685f144f663d7d47ab1f2160bb911e2a5e7fe98519"
+            src="http://localhost:9000/images-bucket/images/37e78463-9555-427d-b5a6-9a40856afa06/rascal-does-not-dream-of-a-dreaming-girl.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio_access_key%2F20220510%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220510T201732Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=4ed0d6a01d2d4ab911291595d64acb71f3355bf1bc9692ba7fe82321880b18a5"
             className="navigation-user-image"
           />
         </Link>

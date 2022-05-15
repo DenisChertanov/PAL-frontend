@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import "./css/FilterBox.css";
 
@@ -15,7 +16,7 @@ import SortsDropdownMenu from "./dropdown-menu/SortsDropdownMenu";
 import WhoWatchedDropdownMultiMenu from "./dropdown-menu/WhoWatchedDropdownMultiMenu";
 import { Link } from "react-router-dom";
 
-function FilterBox({ ...props }) {
+function FilterBox({ authJwtToken, ...props }) {
   const [includeGenres, setIncludeGenres] = useState([]);
   const [excludeGenres, setExcludeGenres] = useState([]);
   const [appliedIncludeGenres, setAppliedIncludeGenres] = useState([]);
@@ -37,6 +38,12 @@ function FilterBox({ ...props }) {
 
   const [watchedByUsers, setWatchedByUsers] = useState([]);
   const [appliedWatchedByUsers, setAppliedWatchedByUsers] = useState([]);
+  const [userPrefix, setUserPrefix] = useState("");
+  const [watchedByUsersPage, setWatchedByUsersPage] = useState({
+    pageNumber: 0,
+    pageSize: 20,
+    totalPages: 1,
+  });
 
   function addIncludeGenre(newGenre) {
     setAppliedIncludeGenres([newGenre, ...appliedIncludeGenres]);
@@ -169,6 +176,81 @@ function FilterBox({ ...props }) {
     );
   }
 
+  async function fetchNextPageWatchedByUsers() {
+    console.log("FETCHING");
+
+    axios
+      .post(
+        `http://localhost:8081/api/public/user/search`,
+        {
+          page: {
+            pageNumber: watchedByUsersPage.pageNumber,
+            pageSize: watchedByUsersPage.pageSize,
+          },
+          userPrefix: userPrefix,
+        },
+        {
+          headers: {
+            Authorization: "Bearer ".concat(authJwtToken),
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(function (response) {
+        let newWatchedByUsersPage = { ...watchedByUsersPage };
+        newWatchedByUsersPage.pageNumber = watchedByUsersPage.pageNumber + 1;
+        newWatchedByUsersPage.totalPages = response.data.totalPages;
+        setWatchedByUsersPage(newWatchedByUsersPage);
+
+        setWatchedByUsers([...watchedByUsers, ...response.data.content]);
+      });
+  }
+
+  function hasMoreWatchedByUsers() {
+    return (
+      watchedByUsersPage.pageNumber !== 0 &&
+      watchedByUsersPage.pageNumber < watchedByUsersPage.totalPages
+    );
+  }
+
+  function setNewUserPrefix(newUserPrefix) {
+    setWatchedByUsersPage({
+      pageNumber: 0,
+      pageSize: 20,
+      totalPages: 1,
+    });
+    setUserPrefix(newUserPrefix);
+  }
+
+  useEffect(() => {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        page: {
+          pageNumber: watchedByUsersPage.pageNumber,
+          pageSize: watchedByUsersPage.pageSize,
+        },
+        userPrefix: userPrefix,
+      }),
+    };
+
+    fetch("http://localhost:8081/api/public/user/search", requestOptions)
+      .then((result) => result.json())
+      .then((usersPage) => {
+        let newWatchedByUsersPage = { ...watchedByUsersPage };
+        newWatchedByUsersPage.pageNumber = watchedByUsersPage.pageNumber + 1;
+        newWatchedByUsersPage.totalPages = usersPage.totalPages;
+        setWatchedByUsersPage(newWatchedByUsersPage);
+
+        setWatchedByUsers(usersPage.content);
+      })
+      .catch((error) => {
+        console.log(error);
+        setWatchedByUsers([]);
+      });
+  }, [userPrefix]);
+
   useEffect(() => {
     fetch("http://localhost:8081/api/public/anime-search/filter-object")
       .then((result) => result.json())
@@ -198,28 +280,6 @@ function FilterBox({ ...props }) {
             return { ...currentSort, isApplied: false };
           })
         );
-        setWatchedByUsers([
-          {
-            userId: "1eb6dcea-7f27-44dd-8bcd-b0d7d20f9076",
-            userName: "nocmok",
-            firstName: "Николай",
-            lastName: "Сафонов",
-            imageUrl:
-              "http://localhost:9000/images-bucket/images/7313847c-e2bc-4cf8-a553-53e11edfb501/your-lie-in-april.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio_access_key%2F20220429%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220429T093921Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=217b59725f04199cf6f292afcbb17ccff91692776907a37a3f55e8645578479c",
-            animeSpentHours: 0.0,
-            animeCount: 0,
-          },
-          {
-            userId: "a8ade8dc-6d11-4175-8f69-8b65457e577d",
-            userName: "DChertanov",
-            firstName: "Denis",
-            lastName: "Chertanov",
-            imageUrl:
-              "http://localhost:9000/images-bucket/images/65249707-be33-47bc-b16f-978da8c53205/rascal-does-not-dream-of-a-dreaming-girl.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio_access_key%2F20220429%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220429T093921Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=3de643c38cb1e9c0224d67685f144f663d7d47ab1f2160bb911e2a5e7fe98519",
-            animeSpentHours: 165.60000000000002,
-            animeCount: 19,
-          },
-        ]);
       })
       .catch((error) => {
         console.log(error);
@@ -227,7 +287,6 @@ function FilterBox({ ...props }) {
         setTypes([]);
         setStates([]);
         setSorts([]);
-        setWatchedByUsers([]);
       });
   }, []);
 
@@ -294,6 +353,11 @@ function FilterBox({ ...props }) {
         <WhoWatchedDropdownMultiMenu
           watchedByUsers={watchedByUsers}
           addWatchedByUser={addWatchedByUser}
+          userPrefix={userPrefix}
+          setNewUserPrefix={setNewUserPrefix}
+          hasMoreWatchedByUsers={hasMoreWatchedByUsers}
+          fetchNextPageWatchedByUsers={fetchNextPageWatchedByUsers}
+          appliedWatchedByUsers={appliedWatchedByUsers}
         />
       </FilterItemWhoWatched>
 

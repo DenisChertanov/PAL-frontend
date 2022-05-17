@@ -1,0 +1,22 @@
+.playlist-image-preview {
+    width: fit-content;
+
+    display: block;
+    cursor: pointer;
+}
+
+.playlist-image-preview-image {
+    width: 158px;
+    height: 225px;
+}
+
+.playlist-image-preview-title {
+    font-family: "Roboto", sans-serif;
+    color: black;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+
+    cursor: default;
+    max-width: 158px;
+}

@@ -135,40 +135,6 @@
     color: white;
 }
 
-.playlists {
-    grid-column: 2;
-    grid-row: 3;
-
-    display: flex;
-
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-
-    height: fit-content;
-    width: fit-content;
-    border: 1px solid #d72323;
-    border-radius: 10px;
-    background-color: white;
-    box-sizing: border-box;
-
-    padding: 4px 20px;
-}
-
-.add-to-playlist {
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: normal;
-    color: #d72323;
-    text-align: center;
-
-    margin-left: 5px;
-    margin-top: auto;
-    margin-bottom: auto;
-
-    cursor: default;
-}
-
 .anime-user-review {
     grid-row: 4;
     grid-column: 1 / 3;

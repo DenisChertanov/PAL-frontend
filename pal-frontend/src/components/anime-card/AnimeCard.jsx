@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import "./css/AnimeCard.css";
@@ -6,6 +6,8 @@ import "./css/AnimeCard.css";
 import EditIcon from "../../img/edit-icon.png";
 import SaveIcon from "../../img/save.png";
 import AnimeCharacteristic from "./AnimeCharacteristic";
+import AddToPlaylistComponent from "./AddToPlaylistComponent";
+import AddToPlaylistDropdownMenu from "./AddToPlaylistDropdownMenu";
 
 function AnimeCard({ anime, animeActivity, authJwtToken, ...props }) {
   const [userMark, setUserMark] = useState(animeActivity.mark);
@@ -19,6 +21,8 @@ function AnimeCard({ anime, animeActivity, authJwtToken, ...props }) {
 
   const [userReview, setUserReview] = useState(animeActivity.review);
   const [isUserReviewChanged, setIsUserReviewChanged] = useState(false);
+
+  const [animePlaylists, setAnimePlaylists] = useState([]);
 
   async function sendUserMarkToBack(floatNewUserMark) {
     const form = new FormData();
@@ -110,6 +114,39 @@ function AnimeCard({ anime, animeActivity, authJwtToken, ...props }) {
       console.log("Parse error 2");
     }
   }
+
+  function updatePlaylists(playlist) {
+    let newAnimePlaylists = [...animePlaylists];
+    newAnimePlaylists = newAnimePlaylists.map((animePlaylist) => {
+      return animePlaylist.animePlaylistId === playlist.animePlaylistId
+        ? playlist
+        : animePlaylist;
+    });
+
+    setAnimePlaylists(newAnimePlaylists);
+  }
+
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer ".concat(authJwtToken),
+      },
+    };
+
+    fetch(
+      "http://localhost:8081/api/public/anime-playlist/all-my",
+      requestOptions
+    )
+      .then((result) => result.json())
+      .then((animePlaylists) => {
+        setAnimePlaylists(animePlaylists);
+      })
+      .catch((error) => {
+        console.log(error);
+        setAnimePlaylists([]);
+      });
+  }, []);
 
   return (
     <div className="anime-info">
@@ -239,18 +276,14 @@ function AnimeCard({ anime, animeActivity, authJwtToken, ...props }) {
         />
       </div>
 
-      <div className="playlists">
-        <i
-          className="fa-solid fa-plus"
-          style={{
-            color: "#d72323",
-            fontSize: "20px",
-            marginBottom: "auto",
-            marginTop: "auto",
-          }}
-        ></i>
-        <h1 className="add-to-playlist">Добавить в плейлист</h1>
-      </div>
+      <AddToPlaylistComponent authJwtToken={authJwtToken} anime={anime}>
+        <AddToPlaylistDropdownMenu
+          animePlaylists={animePlaylists}
+          anime={anime}
+          authJwtToken={authJwtToken}
+          updatePlaylists={updatePlaylists}
+        />
+      </AddToPlaylistComponent>
 
       <div className="anime-user-review">
         <div style={{ display: "flex" }}>

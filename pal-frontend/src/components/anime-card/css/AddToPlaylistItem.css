@@ -1,0 +1,28 @@
+.dropdown-playlist-item {
+    margin: 10px 10px 0;
+}
+
+.dropdown-playlist-title-div {
+    display: flex;
+    width: 100%;
+}
+
+.dropdown-playlist-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #d72323;
+
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dropdown-playlist-logo {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+
+    margin-top: auto;
+    margin-bottom: auto;
+}

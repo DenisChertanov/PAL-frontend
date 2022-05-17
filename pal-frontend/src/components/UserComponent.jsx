@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import CntIcon from "../img/cnt-icon.png";
 import LogOutIcon from "../img/logout-icon.png";
@@ -9,18 +10,73 @@ import LastWatchedAnimeBlock from "./LastWatchedAnimeBlock";
 
 import "./css/UserComponent.css";
 import { Link } from "react-router-dom";
+import PlaylistPreview from "./playlist/PlaylistPreview";
+import Modal from "./Modal";
 
 function UserComponent({
+  userId,
+  profileUserId,
   authJwtToken,
   userInfo,
   userStatistic,
   lastWatchedAnimes,
+  animePlaylists,
+  isModalOpen,
+  modalChildren,
+  ...props
 }) {
+  const addPlaylistButton = (
+    <button
+      className="add-playlist-button"
+      onClick={() => createEmptyPlaylist()}
+    >
+      <i
+        className="fa-solid fa-plus"
+        style={{
+          color: "#d72323",
+          marginBottom: "auto",
+          marginTop: "auto",
+        }}
+      ></i>
+    </button>
+  );
+
   const lastWatchedList = lastWatchedAnimes.map((anime) => (
     <Link key={anime.animeId} to={`/anime/${anime.animeId}`}>
       <LastWatchedAnimeBlock key={anime.animeId} anime={anime} />
     </Link>
   ));
+
+  const playlistsItems = animePlaylists.map((playlist) => {
+    // console.log(playlist);
+    return (
+      <PlaylistPreview
+        key={playlist.animePlaylistId}
+        userId={userId}
+        profileUserId={profileUserId}
+        animePlaylists={animePlaylists}
+        playlist={playlist}
+        authJwtToken={authJwtToken}
+        setIsModalOpen={props.setIsModalOpen}
+        modalChildren={modalChildren}
+        setModalChildren={props.setModalChildren}
+        updatePlaylists={props.updatePlaylists}
+        setUpdateModal={props.setUpdateModal}
+      />
+    );
+  });
+
+  async function createEmptyPlaylist() {
+    axios
+      .get(`http://localhost:8081/api/public/anime-playlist/create-empty`, {
+        headers: {
+          Authorization: "Bearer ".concat(authJwtToken),
+        },
+      })
+      .then((response) => {
+        props.addPlaylist(response.data);
+      });
+  }
 
   return (
     <div className="scroll-div-user">
@@ -98,17 +154,9 @@ function UserComponent({
         </div>
 
         <div className="horizontal-scroll-view">
-          <div className="image-preview-grid">
-            <button className="add-playlist-button">
-              <i
-                className="fa-solid fa-plus"
-                style={{
-                  color: "#d72323",
-                  marginBottom: "auto",
-                  marginTop: "auto",
-                }}
-              ></i>
-            </button>
+          <div className="playlist-image-preview-grid">
+            {userId === profileUserId && addPlaylistButton}
+            {playlistsItems}
           </div>
         </div>
       </div>

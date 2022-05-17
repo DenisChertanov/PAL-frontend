@@ -8,6 +8,7 @@ import SearchPage from "./pages/SearchPage";
 import Layout from "./pages/Layout";
 import UserPage from "./pages/UserPage";
 import UserSearchPage from "./pages/UserSearchPage";
+import Modal from "./components/Modal";
 
 function App() {
   const [authJwtToken, setAuthJwtToken] = useState(
@@ -15,8 +16,12 @@ function App() {
   );
   const [userId, setUserId] = useState("a8ade8dc-6d11-4175-8f69-8b65457e577d");
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [updateModal, setUpdateModal] = useState(false);
+  const [modalChildren, setModalChildren] = useState();
+
   return (
-    <div>
+    <div className="app-div">
       <Routes>
         <Route path="/" element={<Layout userId={userId} />}>
           <Route index element={<Navigate replace to="/anime" />} />
@@ -26,12 +31,30 @@ function App() {
           />
           <Route
             path="user/:id"
-            element={<UserPage authJwtToken={authJwtToken} />}
+            element={
+              <UserPage
+                authJwtToken={authJwtToken}
+                userId={userId}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+                modalChildren={modalChildren}
+                setUpdateModal={setUpdateModal}
+                setModalChildren={setModalChildren}
+              />
+            }
           />
           <Route path="user-search" element={<UserSearchPage />} />
           <Route path="*" element={<p>Not found</p>} />
         </Route>
       </Routes>
+
+      <Modal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        updateModal={updateModal}
+      >
+        {modalChildren}
+      </Modal>
     </div>
   );
 }

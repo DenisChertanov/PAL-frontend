@@ -34,6 +34,7 @@ function UserPage({
       modalChildren={modalChildren}
       setModalChildren={props.setModalChildren}
       setUpdateModal={props.setUpdateModal}
+      setUserInfo={setUserInfo}
     />
   );
 

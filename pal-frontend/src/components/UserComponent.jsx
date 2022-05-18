@@ -78,13 +78,55 @@ function UserComponent({
       });
   }
 
+  async function uploadImage(file) {
+    const form = new FormData();
+    form.append("file", file);
+
+    axios
+      .post(`http://localhost:8081/api/public/user/upload-image`, form, {
+        headers: {
+          Authorization: "Bearer ".concat(authJwtToken),
+          "Content-Type": "multipart/form-data;charset=utf-8",
+        },
+      })
+      .then((response) => {
+        props.setUserInfo(response.data);
+      });
+  }
+
+  const hiddenFileInput = React.useRef(null);
+
+  const handleUserImageClick = (event) => {
+    if (userId !== profileUserId) {
+      return;
+    }
+
+    hiddenFileInput.current.click();
+  };
+
+  const handleChangeFileInput = (event) => {
+    const fileUploaded = event.target.files[0];
+    uploadImage(fileUploaded);
+  };
+
   return (
     <div className="scroll-div-user">
       <div className="user-top">
         <div className="user-card">
           <div className="user-photo-div">
-            <img src={userInfo.imageUrl} className="user-card-logo" />
-            <button className="change-photo-button">Изменить фото</button>
+            <img
+              src={userInfo.imageUrl}
+              className="user-card-logo"
+              style={{ cursor: "pointer" }}
+              onClick={handleUserImageClick}
+            />
+            <input
+              ref={hiddenFileInput}
+              onChange={handleChangeFileInput}
+              type="file"
+              style={{ display: "none" }}
+            />
+            {/* <button className="change-photo-button">Изменить фото</button> */}
           </div>
 
           <div className="user-card-info">

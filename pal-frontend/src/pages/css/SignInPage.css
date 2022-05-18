@@ -1,0 +1,105 @@
+.signin-div {
+    height: fit-content;
+    width: fit-content;
+
+    position: absolute;
+    top: calc(50%);
+    left: calc(50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.signin-pal-logo {
+    width: 150px;
+    height: 111px;
+
+    margin-bottom: 45px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: block;
+}
+
+.signin-form-header {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: #d72323;
+
+    width: fit-content;
+
+    padding-left: 15px;
+}
+
+.signin-form-input {
+    border: 1px solid #d72323;
+    border-radius: 5px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+
+    box-sizing: border-box;
+
+    margin-top: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    width: 300px;
+    height: 35px;
+
+    display: block;
+}
+
+.signin-button {
+    margin-top: 40px;
+
+    box-sizing: border-box;
+    border: 1px solid #d72323;
+    border-radius: 5px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: #d72323;
+    background-color: white;
+
+    width: 300px;
+    height: 35px;
+
+    margin-bottom: 15px;
+
+    display: block;
+}
+
+.login-google {
+    width: 300px;
+    height: 35px;
+    /* Свойство чтобы ширина 100% учитывала рамки */
+    box-sizing: border-box;
+
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+
+    border: 1px solid #d72323;
+    border-radius: 5px;
+    background-color: #d72323;
+
+    margin-bottom: 15px;
+
+    display: block;
+}
+
+.not-register-header {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #d72323;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}

@@ -181,6 +181,10 @@ function PlaylistModal({
   const hiddenFileInput = React.useRef(null);
 
   const handlePlaylistImageClick = (event) => {
+    if (userId !== profileUserId) {
+      return;
+    }
+
     hiddenFileInput.current.click();
   };
 

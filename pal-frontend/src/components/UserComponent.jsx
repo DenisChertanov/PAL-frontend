@@ -109,6 +109,17 @@ function UserComponent({
     uploadImage(fileUploaded);
   };
 
+  const logOutDiv = (
+    <div className="logout-div">
+      <img
+        src={LogOutIcon}
+        className="logout-icon"
+        style={{ cursor: "pointer" }}
+        onClick={() => props.logOut()}
+      />
+    </div>
+  );
+
   return (
     <div className="scroll-div-user">
       <div className="user-top">
@@ -172,9 +183,7 @@ function UserComponent({
           </div>
         </div>
 
-        <div className="logout-div">
-          <img src={LogOutIcon} className="logout-icon" />
-        </div>
+        {userId === profileUserId && logOutDiv}
       </div>
 
       <div className="image-preview-div">

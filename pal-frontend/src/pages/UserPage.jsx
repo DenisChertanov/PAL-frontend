@@ -35,6 +35,7 @@ function UserPage({
       setModalChildren={props.setModalChildren}
       setUpdateModal={props.setUpdateModal}
       setUserInfo={setUserInfo}
+      logOut={props.logOut}
     />
   );
 

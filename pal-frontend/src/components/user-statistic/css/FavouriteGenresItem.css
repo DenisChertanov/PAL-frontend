@@ -1,0 +1,50 @@
+.favourite-genre-item-div {
+    display: flex;
+    position: relative;
+}
+
+.favourite-genre-item-order {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #d72323;
+}
+
+.favourite-genre-item-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #d72323;
+
+    margin-left: 45px;
+    position: absolute;
+}
+
+.favourite-genre-item-mark {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+
+    background-color: #d72323;
+    border-radius: 5px;
+
+    width: fit-content;
+    /* width: 50px; */
+    padding: 5px 10px;
+
+    position: absolute;
+    right: 0;
+}
+
+.favourite-genre-item-hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #d72323;
+}

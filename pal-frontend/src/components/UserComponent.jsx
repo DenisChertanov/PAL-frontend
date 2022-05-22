@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import CntIcon from "../img/cnt-icon.png";
@@ -12,6 +12,9 @@ import "./css/UserComponent.css";
 import { Link } from "react-router-dom";
 import PlaylistPreview from "./playlist/PlaylistPreview";
 import Modal from "./Modal";
+import FavouriteGenresComponent from "./user-statistic/FavouriteGenresComponent";
+import AnimeTypePieChart from "./user-statistic/AnimeTypePieChart";
+import AnimeCountLineChart from "./user-statistic/AnimeCountLineChart";
 
 function UserComponent({
   userId,
@@ -120,6 +123,49 @@ function UserComponent({
     </div>
   );
 
+  const [favouriteGenres, setFavouriteGenres] = useState([]);
+
+  const [animeTypesStatisticList, setAnimeTypesStatisticList] = useState([]);
+
+  const [animeCountDistribution, setAnimeCountDistribution] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      `http://localhost:8081/api/public/statistic/favourite-genres/${profileUserId}`
+    )
+      .then((result) => result.json())
+      .then((userFavouriteGenresList) => {
+        setFavouriteGenres(userFavouriteGenresList);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    fetch(
+      `http://localhost:8081/api/public/statistic/anime-type-distribution/${profileUserId}`
+    )
+      .then((result) => result.json())
+      .then((animeTypeDistribution) => {
+        // console.log(animeTypeDistribution);
+        setAnimeTypesStatisticList(animeTypeDistribution);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    fetch(
+      `http://localhost:8081/api/public/statistic/anime-time-distribution/${profileUserId}`
+    )
+      .then((result) => result.json())
+      .then((animeTimeDistribution) => {
+        console.log(animeTimeDistribution);
+        setAnimeCountDistribution(animeTimeDistribution);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [profileUserId]);
+
   return (
     <div className="scroll-div-user">
       <div className="user-top">
@@ -183,27 +229,32 @@ function UserComponent({
           </div>
         </div>
 
+        <AnimeCountLineChart animeCountDistribution={animeCountDistribution} />
+
         {userId === profileUserId && logOutDiv}
       </div>
 
-      <div className="image-preview-div">
-        <div className="image-preview-all-button">
-          <h1 className="image-preview-all-button-text">
-            Последние просмотренные аниме
-          </h1>
-        </div>
+      <div className="outer-second-statistic-div">
+        <FavouriteGenresComponent favouriteGenres={favouriteGenres} />
 
+        <AnimeTypePieChart animeTypesStatisticList={animeTypesStatisticList} />
+      </div>
+
+      <div className="image-preview-all-button">
+        <h1 className="image-preview-all-button-text">
+          Последние просмотренные аниме
+        </h1>
+      </div>
+      <div className="image-preview-div">
         <div className="horizontal-scroll-view">
           <div className="image-preview-grid">{lastWatchedList}</div>
         </div>
       </div>
 
+      <div className="image-preview-all-button">
+        <h1 className="image-preview-all-button-text">Плейлисты</h1>
+      </div>
       <div className="image-preview-div" style={{ gridRow: "4" }}>
-        <div className="image-preview-all-button">
-          <h1 className="image-preview-all-button-text">Плейлисты</h1>
-          <img src={RightArrowIcon} className="playlists-right-arrow" />
-        </div>
-
         <div className="horizontal-scroll-view">
           <div className="playlist-image-preview-grid">
             {userId === profileUserId && addPlaylistButton}

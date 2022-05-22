@@ -19,6 +19,8 @@ function App() {
   const [userId, setUserId] = useState();
   const [userInfo, setUserInfo] = useState();
 
+  const [profileUserId, setProfileUserId] = useState();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [modalChildren, setModalChildren] = useState();
@@ -131,6 +133,8 @@ function App() {
         <UserPage
           authJwtToken={authJwtToken}
           userId={userId}
+          profileUserId={profileUserId}
+          setProfileUserId={setProfileUserId}
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
           modalChildren={modalChildren}

@@ -22,13 +22,15 @@ button {
 }
 
 .user-card {
-    grid-column: 1;
-    grid-row: 1;
+    /* grid-column: 1; */
+    /* grid-row: 1; */
 
     margin-top: 30px;
     /* padding-left: 20px; */
 
     display: flex;
+    width: fit-content;
+    height: fit-content;
 }
 
 .user-card-logo {
@@ -39,16 +41,23 @@ button {
 }
 
 .user-card-info {
+    width: fit-content;
+    height: fit-content;
+
     margin-left: 50px;
     margin-top: 25px;
+
+    display: block;
 }
 
 .user-card-name {
     font-size: 20px;
     width: fit-content;
 
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-block;
+
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 }
 
 .user-card-username {
@@ -86,6 +95,8 @@ button {
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
+
+    width: 150px;
 }
 
 .logout-div {
@@ -106,28 +117,34 @@ button {
 }
 
 .image-preview-div {
-    margin-top: 30px;
-    /* margin-left: 20px; */
-    /* padding-left: 20px; */
+    margin-left: 0;
+    padding-left: 0;
+    box-sizing: border-box;
+    padding-top: 0;
 
-    /* width: 100%; */
     width: 1360px;
     height: fit-content;
 
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     border: 1px solid #d72323;
+    border-top: none;
 }
 
 .image-preview-all-button {
     height: 40px;
-    width: 100%;
+    width: 1360px;
 
-    border: none;
-    border-bottom: 1px solid #d72323;
+    box-sizing: border-box;
+    border: 1px solid #d72323;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #d72323;
 
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: auto min-content;
+    margin-top: 50px;
+
+    position: relative;
+    display: block;
 }
 
 .image-preview-all-button-text {
@@ -137,12 +154,16 @@ button {
     font-size: 16px;
     font-weight: bold;
     text-align: start;
+    color: white;
 
-    padding-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
+    display: block;
+    margin-left: 10px;
 
     cursor: default;
+
+    position: absolute;
+    top: calc(50%);
+    transform: translateY(-50%);
 }
 
 .horizontal-scroll-view {
@@ -211,11 +232,11 @@ button {
     display: block;
 }
 
-.user-photo-div {
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: 1fr;
-}
+/* .user-photo-div { */
+    /* display: grid; */
+    /* grid-template-rows: auto auto; */
+    /* grid-template-columns: 1fr; */
+/* } */
 
 .change-photo-button {
     grid-row: 2;
@@ -249,9 +270,9 @@ button {
 }
 
 .user-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    /* grid-template-rows: 1fr; */
 }
 
 .playlist-image-preview-grid {
@@ -265,4 +286,15 @@ button {
     grid-column-gap: 15px;
 
     width: fit-content;
+}
+
+.outer-second-statistic-div {
+    display: flex;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+
+    width: fit-content;
+    height: fit-content;
 }

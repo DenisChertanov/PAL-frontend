@@ -6,6 +6,7 @@ import UserComponent from "../components/UserComponent";
 function UserPage({
   authJwtToken,
   userId,
+  profileUserId,
   isModalOpen,
   modalChildren,
   ...props
@@ -21,7 +22,7 @@ function UserPage({
   const userComponent = (
     <UserComponent
       userId={userId}
-      profileUserId={id}
+      profileUserId={profileUserId}
       authJwtToken={authJwtToken}
       userInfo={userInfo}
       userStatistic={userStatistic}
@@ -109,6 +110,8 @@ function UserPage({
       .catch((error) => {
         console.log(error);
       });
+
+    props.setProfileUserId(id);
   }, [id]);
 
   return userInfo && userStatistic && lastWatchedAnimes && userComponent;

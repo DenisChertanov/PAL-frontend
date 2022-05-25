@@ -8,6 +8,7 @@
 .playlist-image-preview-image {
     width: 158px;
     height: 225px;
+    object-fit: cover;
 }
 
 .playlist-image-preview-title {

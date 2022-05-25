@@ -1,0 +1,83 @@
+.anime-rating-main-second-third-div {
+    position: relative;
+    display: flex;
+
+    width: 100%;
+    height: fit-content;
+
+    cursor: pointer;
+}
+
+.anime-rating-main-second-third-image {
+    display: block;
+
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.anime-rating-second-third-info-div {
+    display: block;
+
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+
+    padding: 10px;
+}
+
+.anime-rating-second-third-info-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.anime-rating-second-third-info-mark {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+
+    background-color: #d72323;
+    border-radius: 5px;
+
+    width: fit-content;
+
+    padding: 5px 10px;
+}
+
+.anime-rating-second-third-info-description {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: block;
+}
+
+.anime-rating-second-third-info-description-group {
+    display: flex;
+    margin-top: 5px;
+}
+
+.anime-rating-second-third-info-description-group-name {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+.anime-rating-second-third-info-description-group-value {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: black;
+
+    margin-left: 5px;
+}

@@ -10,7 +10,7 @@ function NavBar({ userId, userInfo }) {
   return (
     <React.Fragment>
       <div className="image-box">
-        <Link to={"/anime"}>
+        <Link to={"/main"}>
           <img src={pal_logo} className="pal-logo" />
         </Link>
       </div>

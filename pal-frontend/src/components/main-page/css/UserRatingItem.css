@@ -1,0 +1,58 @@
+.user-rating-item-outer-div {
+    cursor: pointer;
+}
+
+.user-rating-item-main-div {
+    display: flex;
+
+    position: relative;
+}
+
+.user-rating-item-order {
+    margin-top: auto;
+    margin-bottom: auto;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #D72323;
+}
+
+.user-rating-item-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+
+    border-radius: 40px;
+
+    margin-left: 20px;
+}
+
+.user-rating-item-name {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    text-align: center;
+
+    margin-left: 25px;
+}
+
+.user-rating-item-count {
+    position: absolute;
+
+    right: 0;
+    top: calc(50%);
+    transform: translateY(-50%);
+}
+
+.user-rating-item-hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #d72323;
+}

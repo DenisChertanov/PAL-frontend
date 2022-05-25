@@ -1,0 +1,26 @@
+.main-page-outer-div {
+    display: flex;
+
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+
+    width: 1365px;
+}
+
+.main-page-right-panel {
+    display: block;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.main-page-right-panel-inside-div {
+    display: block;
+
+    position: relative;
+    height: 100%;
+}

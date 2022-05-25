@@ -377,6 +377,7 @@
 .dropdown-user-logo {
     width: 20px;
     height: 20px;
+    object-fit: cover;
     border-radius: 20px;
 
     margin-top: auto;

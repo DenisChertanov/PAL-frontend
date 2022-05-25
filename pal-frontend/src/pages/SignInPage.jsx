@@ -29,7 +29,7 @@ function SignInPage({ authJwtToken, userId, userInfo, ...props }) {
         .then((resultUserInfo) => {
           props.setAuthJwtToken(token);
           props.setAllByUserInfo(resultUserInfo);
-          navigate("/anime");
+          navigate("/main");
         })
         .catch(() => {
           console.log("Cant authorize");

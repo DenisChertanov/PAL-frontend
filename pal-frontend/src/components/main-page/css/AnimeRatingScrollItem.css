@@ -1,0 +1,125 @@
+.anime-scroll-item-outer-div {
+    display: block;
+}
+
+.anime-scroll-item-main-div {
+    display: flex;
+    position: relative;
+
+    width: 100%;
+    height: fit-content;
+
+    cursor: pointer;
+}
+
+.anime-scroll-item-order {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d72323;
+
+    width: fit-content;
+    height: fit-content;
+
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    position: absolute;
+    top: calc(50%);
+    transform: translateY(-50%);
+}
+
+.anime-scroll-item-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50px;
+
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 50px;
+}
+
+.anime-scroll-item-info-div {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+
+    width: 130px;
+    height: fit-content;
+}
+
+.anime-scroll-item-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.anime-scroll-item-mark {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+
+    background-color: #d72323;
+    border-radius: 5px;
+
+    width: fit-content;
+
+    padding: 3px 10px;
+}
+
+.anime-scroll-item-description {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 80px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 5px;
+}
+
+.anime-scroll-item-description-group {
+    display: flex;
+}
+
+.anime-scroll-item-description-group-name {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+.anime-scroll-item-description-group-value {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: black;
+
+    margin-left: 5px;
+}
+
+.anime-scroll-item-hr {
+    margin-left: -60px;
+    margin-right: -60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #d72323;
+}

@@ -13,6 +13,7 @@ import Modal from "./components/Modal";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import axios from "axios";
+import MainPage from "./pages/MainPage";
 
 function App() {
   const [authJwtToken, setAuthJwtToken] = useState();
@@ -53,7 +54,6 @@ function App() {
 
   async function logIn(username, password) {
     var credentials = btoa(username + ":" + password);
-    // console.log(credentials);
 
     axios
       .get("http://localhost:8081/api/public/auth/signin", {
@@ -82,7 +82,7 @@ function App() {
         .then((resultUserInfo) => {
           setAuthJwtToken(token);
           setAllByUserInfo(resultUserInfo);
-          navigate("/anime");
+          navigate("/main");
         })
         .catch(() => {
           console.log("Cant authorize");
@@ -157,6 +157,7 @@ function App() {
           {authJwtToken && routeToSearchPage}
           {authJwtToken && routeToUserPage}
           <Route path="user-search" element={<UserSearchPage />} />
+          <Route path="main" element={<MainPage />} />
           <Route path="*" element={<p>Not found</p>} />
         </Route>
         <Route

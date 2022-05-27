@@ -42,21 +42,20 @@ function AnimeCard({ anime, animeActivity, authJwtToken, ...props }) {
   }
 
   async function sendUserReviewToBack(newUserReview) {
-    const form = new FormData();
-    form.append("review", newUserReview);
-    console.log(newUserReview);
+    let request = new URLSearchParams({
+      review: newUserReview,
+    });
 
-    const response = axios.post(
+    axios.post(
       `http://localhost:8081/api/private/anime-activity/update-review/${anime.animeId}`,
-      form,
+      request,
       {
         headers: {
           Authorization: "Bearer ".concat(authJwtToken),
-          "Content-Type": "multipart/form-data;charset=utf-8",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
       }
     );
-    console.log(response);
   }
 
   async function sendUserLastWatchedEpisodeToBack(newUserLastWatchedEpisode) {

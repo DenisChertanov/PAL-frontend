@@ -12,3 +12,37 @@
     grid-auto-flow: dense row;
     grid-column-gap: 20px;
 }
+
+.anime-search-empty-div {
+    /* display: flex; */
+
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    margin: auto;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.anime-search-empty-image {
+    width: 150px;
+    height: 150px;
+
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.anime-search-empty-header {
+    font-size: 32px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: #C4C4C4;
+
+    width: fit-content;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

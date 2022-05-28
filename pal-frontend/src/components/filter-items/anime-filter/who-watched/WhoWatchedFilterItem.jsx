@@ -1,5 +1,7 @@
 import React from "react";
 
+import EmptyUserLogo from "../../../../img/empty-user-logo.png";
+
 function WhoWatchedFilterItem({ user, appliedWatchedByUsersIds, ...props }) {
   return (
     <div
@@ -13,7 +15,13 @@ function WhoWatchedFilterItem({ user, appliedWatchedByUsersIds, ...props }) {
       style={{ cursor: "pointer" }}
     >
       <div className="dropdown-people-name-div">
-        <img src={user.imageUrl} className="dropdown-user-logo" />
+        <img
+          src={user.imageUrl ? user.imageUrl : EmptyUserLogo}
+          className="dropdown-user-logo"
+          onError={(e) => {
+            e.target.src = EmptyUserLogo;
+          }}
+        />
         <h1
           className="dropdown-people-name"
           style={

@@ -145,6 +145,10 @@ function AnimeCard({ anime, animeActivity, authJwtToken, ...props }) {
         console.log(error);
         setAnimePlaylists([]);
       });
+
+    setLastWatchedEpisode(animeActivity.lastWatchedEpisode);
+    setUserMark(animeActivity.mark);
+    setUserReview(animeActivity.review);
   }, []);
 
   return (

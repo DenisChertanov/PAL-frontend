@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import "./css/AddToPlaylistItem.css";
+import EmptyPlaylistImage from "../../img/empty-playlist-image.png";
 
 function AddToPlaylistItem({ playlist, anime, authJwtToken, ...props }) {
   const isAdded = playlist.items.some((playlistItem) => {
@@ -40,7 +41,13 @@ function AddToPlaylistItem({ playlist, anime, authJwtToken, ...props }) {
       style={{ cursor: "pointer" }}
     >
       <div className="dropdown-playlist-title-div">
-        <img src={playlist.imageUrl} className="dropdown-playlist-logo" />
+        <img
+          src={playlist.imageUrl ? playlist.imageUrl : EmptyPlaylistImage}
+          className="dropdown-playlist-logo"
+          onError={(e) => {
+            e.target.src = EmptyPlaylistImage;
+          }}
+        />
         <h1
           className="dropdown-playlist-title"
           style={isAdded ? { color: "#9A9999" } : {}}

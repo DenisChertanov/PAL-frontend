@@ -1,3 +1,7 @@
+.playlist-modal-div {
+    height: 100%;
+}
+
 .playlist-header-div {
     display: flex;
 
@@ -10,9 +14,9 @@
 .playlist-image {
     height: 200px;
     width: 200px;
+    object-fit: cover;
 
     border-radius: 100px;
-
     margin-right: 50px;
 
     cursor: pointer;
@@ -154,4 +158,34 @@
 .playlist-mark-star {
     width: 20px;
     height: 20px;
+}
+
+.playlist-items-empty-div {
+    /* display: flex; */
+
+    width: fit-content;
+    height: 550px;
+    position: relative;
+    margin: auto;
+}
+
+.playlist-items-empty-image {
+    width: 150px;
+    height: 150px;
+
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.playlist-items-empty-header {
+    font-size: 32px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: #C4C4C4;
+
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }

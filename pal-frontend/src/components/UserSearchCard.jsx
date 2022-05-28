@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import CntIcon from "../img/cnt-icon.png";
-import DrStone from "../img/dr-stone.jpeg";
+import EmptyUserLogo from "../img/empty-user-logo.png";
 
 import "./css/UserSearchCard.css";
 
@@ -10,7 +10,13 @@ function UserSearchCard({ user }) {
   return (
     <Link to={`/user/${user.userId}`}>
       <div className="user-search-card">
-        <img src={user.imageUrl} className="user-search-card-logo" />
+        <img
+          src={user.imageUrl ? user.imageUrl : EmptyUserLogo}
+          className="user-search-card-logo"
+          onError={(e) => {
+            e.target.src = EmptyUserLogo;
+          }}
+        />
         <div className="user-search-card-info">
           <h1 className="user-search-card-name">
             {user.firstName.concat(" ").concat(user.lastName)}

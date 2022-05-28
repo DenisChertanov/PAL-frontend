@@ -3,8 +3,8 @@ import React from "react";
 import "./css/NavBar.css";
 
 import pal_logo from "../img/pal-logo.svg";
-import user_image from "../img/user-image.svg";
 import { Link } from "react-router-dom";
+import EmptyUserLogo from "../img/empty-user-logo.png";
 
 function NavBar({ userId, userInfo }) {
   return (
@@ -26,8 +26,17 @@ function NavBar({ userId, userInfo }) {
 
         <Link to={`/user/${userId}`}>
           <img
-            src={userInfo != undefined ? userInfo.imageUrl : null}
+            src={
+              userInfo != undefined
+                ? userInfo.imageUrl
+                  ? userInfo.imageUrl
+                  : EmptyUserLogo
+                : null
+            }
             className="navigation-user-image"
+            onError={(e) => {
+              e.target.src = EmptyUserLogo;
+            }}
           />
         </Link>
       </div>

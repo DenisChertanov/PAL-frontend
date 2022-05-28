@@ -6,6 +6,8 @@ import PlaylistItem from "./PlaylistItem";
 
 import RedStar from "../../img/red-star.png";
 import WhiteStar from "../../img/white-star.png";
+import EmptyPlaylistImage from "../../img/empty-playlist-image.png";
+import EmptyListImage from "../../img/empty-list-image.png";
 
 function PlaylistModal({
   playlist,
@@ -193,13 +195,27 @@ function PlaylistModal({
     uploadImage(fileUploaded);
   };
 
+  const emptyPlaylistItemsBlock = (
+    <div className="playlist-items-empty-div">
+      <img src={EmptyListImage} className="playlist-items-empty-image" />
+      <h1 className="playlist-items-empty-header">Здесь пока пусто</h1>
+    </div>
+  );
+
+  const playlistItemsScrollBlock = (
+    <div className="playlist-items-scroll-div">{playlistItems}</div>
+  );
+
   return (
     <div className="playlist-modal-div">
       <div className="playlist-header-div">
         <img
           className="playlist-image"
-          src={playlist.imageUrl}
+          src={playlist.imageUrl ? playlist.imageUrl : EmptyPlaylistImage}
           onClick={handlePlaylistImageClick}
+          onError={(e) => {
+            e.target.src = EmptyPlaylistImage;
+          }}
         />
         <input
           ref={hiddenFileInput}
@@ -289,7 +305,9 @@ function PlaylistModal({
 
       <hr className="playlist-modal-header-hr" />
 
-      <div className="playlist-items-scroll-div">{playlistItems}</div>
+      {playlistItems.length !== 0
+        ? playlistItemsScrollBlock
+        : emptyPlaylistItemsBlock}
     </div>
   );
 }

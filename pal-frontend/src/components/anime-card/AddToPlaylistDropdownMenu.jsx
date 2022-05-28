@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddToPlaylistItem from "./AddToPlaylistItem";
 
 import "./css/AddToPlaylistDropdownMenu.css";
+import EmptyListImage from "../../img/empty-list-image.png";
 
 function AddToPlaylistDropdownMenu({
   animePlaylists,
@@ -25,6 +26,15 @@ function AddToPlaylistDropdownMenu({
       />
     ));
 
+  const playlistsBlock = <div className="scroll-div">{playlistItems}</div>;
+
+  const emptyPlaylistsBlock = (
+    <div className="add-to-playlist-empty-div">
+      <img src={EmptyListImage} className="add-to-playlist-empty-image" />
+      <h1 className="add-to-playlist-empty-header">Здесь пока пусто</h1>
+    </div>
+  );
+
   return (
     <div className="dropdown-playlist-menu">
       <input
@@ -41,7 +51,7 @@ function AddToPlaylistDropdownMenu({
         }}
       />
 
-      <div className="scroll-div">{playlistItems}</div>
+      {playlistItems.length !== 0 ? playlistsBlock : emptyPlaylistsBlock}
     </div>
   );
 }

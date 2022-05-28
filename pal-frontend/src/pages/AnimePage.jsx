@@ -10,7 +10,7 @@ function AnimePage({ authJwtToken, ...props }) {
     animeId: id,
     mark: 0.0,
     review: "",
-    lastWatchedEpisode: 26,
+    lastWatchedEpisode: 0,
   });
 
   function setAnimeActivityMark(newUserMark) {
@@ -31,7 +31,7 @@ function AnimePage({ authJwtToken, ...props }) {
     setAnimeActivity(newAnimeActivity);
   }
 
-  const animeCard = (
+  let animeCard = (
     <AnimeCard
       anime={anime}
       animeActivity={animeActivity}

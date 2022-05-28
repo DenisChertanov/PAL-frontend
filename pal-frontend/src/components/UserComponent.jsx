@@ -3,8 +3,7 @@ import axios from "axios";
 
 import CntIcon from "../img/cnt-icon.png";
 import LogOutIcon from "../img/logout-icon.png";
-import DrStone from "../img/dr-stone.jpeg";
-import RightArrowIcon from "../img/right-arrow-icon.png";
+import EmptyUserLogo from "../img/empty-user-logo.png";
 
 import LastWatchedAnimeBlock from "./LastWatchedAnimeBlock";
 
@@ -15,6 +14,7 @@ import Modal from "./Modal";
 import FavouriteGenresComponent from "./user-statistic/FavouriteGenresComponent";
 import AnimeTypePieChart from "./user-statistic/AnimeTypePieChart";
 import AnimeCountLineChart from "./user-statistic/AnimeCountLineChart";
+import EmptyListImage from "../img/empty-list-image.png";
 
 function UserComponent({
   userId,
@@ -44,14 +44,13 @@ function UserComponent({
     </button>
   );
 
-  const lastWatchedList = lastWatchedAnimes.map((anime) => (
+  let lastWatchedList = lastWatchedAnimes.map((anime) => (
     <Link key={anime.animeId} to={`/anime/${anime.animeId}`}>
       <LastWatchedAnimeBlock key={anime.animeId} anime={anime} />
     </Link>
   ));
 
   const playlistsItems = animePlaylists.map((playlist) => {
-    // console.log(playlist);
     return (
       <PlaylistPreview
         key={playlist.animePlaylistId}
@@ -166,16 +165,48 @@ function UserComponent({
       });
   }, [profileUserId]);
 
+  const lastWatchedEmptyBlock = (
+    <div className="last-watched-empty-div">
+      <img src={EmptyListImage} className="last-watched-empty-image" />
+      <h1 className="last-watched-empty-header">Здесь пока пусто</h1>
+    </div>
+  );
+
+  const lastWatchedBlock = (
+    <div className="horizontal-scroll-view">
+      <div className="image-preview-grid">{lastWatchedList}</div>
+    </div>
+  );
+
+  const playlistsEmptyBlock = (
+    <div className="last-watched-empty-div">
+      <img src={EmptyListImage} className="last-watched-empty-image" />
+      <h1 className="last-watched-empty-header">Здесь пока пусто</h1>
+    </div>
+  );
+
+  const playlistsBlock = (
+    <div className="horizontal-scroll-view">
+      <div className="playlist-image-preview-grid">
+        {userId === profileUserId && addPlaylistButton}
+        {playlistsItems}
+      </div>
+    </div>
+  );
+
   return (
     <div className="scroll-div-user">
       <div className="user-top">
         <div className="user-card">
           <div className="user-photo-div">
             <img
-              src={userInfo.imageUrl}
+              src={userInfo.imageUrl ? userInfo.imageUrl : EmptyUserLogo}
               className="user-card-logo"
               style={{ cursor: "pointer" }}
               onClick={handleUserImageClick}
+              onError={(e) => {
+                e.target.src = EmptyUserLogo;
+              }}
             />
             <input
               ref={hiddenFileInput}
@@ -246,21 +277,18 @@ function UserComponent({
         </h1>
       </div>
       <div className="image-preview-div">
-        <div className="horizontal-scroll-view">
-          <div className="image-preview-grid">{lastWatchedList}</div>
-        </div>
+        {lastWatchedList.length !== 0
+          ? lastWatchedBlock
+          : lastWatchedEmptyBlock}
       </div>
 
       <div className="image-preview-all-button">
         <h1 className="image-preview-all-button-text">Плейлисты</h1>
       </div>
       <div className="image-preview-div" style={{ gridRow: "4" }}>
-        <div className="horizontal-scroll-view">
-          <div className="playlist-image-preview-grid">
-            {userId === profileUserId && addPlaylistButton}
-            {playlistsItems}
-          </div>
-        </div>
+        {userId === profileUserId || playlistsItems.length !== 0
+          ? playlistsBlock
+          : playlistsEmptyBlock}
       </div>
     </div>
   );

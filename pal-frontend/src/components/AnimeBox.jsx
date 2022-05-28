@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import AnimeBlock from "./AnimeBlock";
 
 import "./css/AnimeBox.css";
+import EmptyListImage from "../img/empty-list-image.png";
 
 function AnimeBox({ page, appliedFilters, authJwtToken, ...props }) {
   const [animeList, setAnimeList] = useState([]);
@@ -10,6 +11,15 @@ function AnimeBox({ page, appliedFilters, authJwtToken, ...props }) {
   const animeBlocks = animeList.map((anime) => (
     <AnimeBlock key={anime.animeId} anime={anime} />
   ));
+
+  const animeEmptyBlock = (
+    <div className="anime-search-empty-div">
+      <img src={EmptyListImage} className="anime-search-empty-image" />
+      <h1 className="anime-search-empty-header">Ничего не найдено</h1>
+    </div>
+  );
+
+  const animeBlock = <div className="anime-box">{animeBlocks}</div>;
 
   useEffect(() => {
     const requestOptions = {
@@ -36,7 +46,7 @@ function AnimeBox({ page, appliedFilters, authJwtToken, ...props }) {
       });
   }, [appliedFilters]);
 
-  return <div className="anime-box">{animeBlocks}</div>;
+  return <div>{animeList.length !== 0 ? animeBlock : animeEmptyBlock}</div>;
 }
 
 export default AnimeBox;

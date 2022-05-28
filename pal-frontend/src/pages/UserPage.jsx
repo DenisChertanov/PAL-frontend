@@ -19,7 +19,7 @@ function UserPage({
 
   const [animePlaylists, setAnimePlaylists] = useState([]);
 
-  const userComponent = (
+  let userComponent = (
     <UserComponent
       userId={userId}
       profileUserId={profileUserId}
@@ -82,7 +82,7 @@ function UserPage({
     fetch(`http://localhost:8081/api/public/statistic/last-watched-anime/${id}`)
       .then((result) => result.json())
       .then((lastWatchedAnimesDto) => {
-        setLastWatchedAnimes([...lastWatchedAnimesDto, ...lastWatchedAnimes]);
+        setLastWatchedAnimes(lastWatchedAnimesDto);
       })
       .catch((error) => {
         console.log(error);

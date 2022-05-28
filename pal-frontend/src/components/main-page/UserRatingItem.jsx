@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./css/UserRatingItem.css";
+import EmptyUserLogo from "../..//img/empty-user-logo.png";
 
 function UserRatingItem({ userRatingElement, ...props }) {
   return (
@@ -15,7 +16,14 @@ function UserRatingItem({ userRatingElement, ...props }) {
 
         <img
           className="user-rating-item-image"
-          src={userRatingElement.imageUrl}
+          src={
+            userRatingElement.imageUrl
+              ? userRatingElement.imageUrl
+              : EmptyUserLogo
+          }
+          onError={(e) => {
+            e.target.src = EmptyUserLogo;
+          }}
         />
 
         <h1 className="user-rating-item-name">

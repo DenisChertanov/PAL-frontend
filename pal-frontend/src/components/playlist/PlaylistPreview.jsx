@@ -2,6 +2,7 @@ import React from "react";
 
 import "./css/PlaylistPreview.css";
 import PlaylistModal from "./PlaylistModal";
+import EmptyPlaylistImage from "../../img/empty-playlist-image.png";
 
 function PlaylistPreview({
   playlist,
@@ -31,7 +32,13 @@ function PlaylistPreview({
         props.setModalChildren(playlistModal);
       }}
     >
-      <img src={playlist.imageUrl} className="playlist-image-preview-image" />
+      <img
+        src={playlist.imageUrl ? playlist.imageUrl : EmptyPlaylistImage}
+        className="playlist-image-preview-image"
+        onError={(e) => {
+          e.target.src = EmptyPlaylistImage;
+        }}
+      />
       <h1 className="playlist-image-preview-title">
         {playlist.title.toUpperCase()}
       </h1>

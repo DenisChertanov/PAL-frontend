@@ -299,3 +299,35 @@ button {
     width: fit-content;
     height: fit-content;
 }
+
+.last-watched-empty-div {
+    /* display: flex; */
+
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    margin: auto;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.last-watched-empty-image {
+    width: 100px;
+    height: 100px;
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.last-watched-empty-header {
+    font-size: 24px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: #C4C4C4;
+
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}

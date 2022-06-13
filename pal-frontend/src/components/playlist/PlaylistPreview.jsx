@@ -9,6 +9,7 @@ function PlaylistPreview({
   modalChildren,
   authJwtToken,
   userId,
+  username,
   profileUserId,
   ...props
 }) {
@@ -17,6 +18,7 @@ function PlaylistPreview({
       playlist={playlist}
       authJwtToken={authJwtToken}
       userId={userId}
+      username={username}
       profileUserId={profileUserId}
       updatePlaylists={props.updatePlaylists}
       setModalChildren={props.setModalChildren}

@@ -8,7 +8,7 @@ import "./css/UserSearchCard.css";
 
 function UserSearchCard({ user }) {
   return (
-    <Link to={`/user/${user.userId}`}>
+    <Link to={`/user/${user.userName}`}>
       <div className="user-search-card">
         <img
           src={user.imageUrl ? user.imageUrl : EmptyUserLogo}

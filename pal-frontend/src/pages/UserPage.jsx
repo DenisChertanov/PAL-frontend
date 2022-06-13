@@ -6,6 +6,7 @@ import UserComponent from "../components/UserComponent";
 function UserPage({
   authJwtToken,
   userId,
+  username,
   profileUserId,
   isModalOpen,
   modalChildren,
@@ -22,6 +23,7 @@ function UserPage({
   let userComponent = (
     <UserComponent
       userId={userId}
+      username={username}
       profileUserId={profileUserId}
       authJwtToken={authJwtToken}
       userInfo={userInfo}
@@ -95,7 +97,7 @@ function UserPage({
         Authorization: "Bearer ".concat(authJwtToken),
       },
       body: new URLSearchParams({
-        userId: id,
+        username: id,
       }),
     };
 

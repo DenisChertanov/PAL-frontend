@@ -61,7 +61,7 @@ function AnimeRating({ animeRatingList, animeRatingPeriod, ...props }) {
       <div className="anime-rating-main-div">
         <div
           className="anime-rating-main-first-div"
-          onClick={() => props.navigateToAnimePage(firstAnime.animeId)}
+          onClick={() => props.navigateToAnimePage(firstAnime.stringId)}
         >
           <img src={GoldMedal} className="anime-rating-medal" />
           <img

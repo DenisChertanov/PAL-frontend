@@ -6,7 +6,7 @@ function AnimeRatingSecondThirdComponent({ anime, medal, ...props }) {
   return (
     <div
       className="anime-rating-main-second-third-div"
-      onClick={() => props.navigateToAnimePage(anime.animeId)}
+      onClick={() => props.navigateToAnimePage(anime.stringId)}
     >
       <img src={medal} className="anime-rating-medal" />
       <img

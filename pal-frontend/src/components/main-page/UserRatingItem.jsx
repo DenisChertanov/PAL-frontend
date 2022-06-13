@@ -7,7 +7,7 @@ function UserRatingItem({ userRatingElement, ...props }) {
   return (
     <div
       className="user-rating-item-outer-div"
-      onClick={() => props.navigateToUserPage(userRatingElement.userId)}
+      onClick={() => props.navigateToUserPage(userRatingElement.username)}
     >
       <div className="user-rating-item-main-div">
         <h1 className="user-rating-item-order">

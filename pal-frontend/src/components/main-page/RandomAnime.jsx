@@ -17,7 +17,7 @@ function RandomAnime({ anime, ...props }) {
 
       <div
         className="random-anime-card-outer-div"
-        onClick={() => props.navigateToAnimePage(anime.animeId)}
+        onClick={() => props.navigateToAnimePage(anime.stringId)}
       >
         <img src={anime.imageUrl} className="random-anime-image" />
         <h1 className="random-anime-title">{anime.title.toUpperCase()}</h1>

@@ -18,6 +18,7 @@ import MainPage from "./pages/MainPage";
 function App() {
   const [authJwtToken, setAuthJwtToken] = useState();
   const [userId, setUserId] = useState();
+  const [username, setUsername] = useState();
   const [userInfo, setUserInfo] = useState();
 
   const [profileUserId, setProfileUserId] = useState();
@@ -31,12 +32,14 @@ function App() {
   function setAllByUserInfo(newUserInfo) {
     setUserId(newUserInfo.userId);
     setUserInfo(newUserInfo);
+    setUsername(newUserInfo.userName);
   }
 
   function logOut() {
     setAuthJwtToken();
     setUserId();
     setUserInfo();
+    setUsername();
 
     Cookies.remove("auth-token");
 
@@ -141,6 +144,8 @@ function App() {
           setUpdateModal={setUpdateModal}
           setModalChildren={setModalChildren}
           logOut={logOut}
+          username={username}
+          setUsername={setUsername}
         />
       }
     />

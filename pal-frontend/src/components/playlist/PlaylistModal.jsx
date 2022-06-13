@@ -13,6 +13,7 @@ function PlaylistModal({
   playlist,
   authJwtToken,
   userId,
+  username,
   profileUserId,
   ...props
 }) {
@@ -28,6 +29,7 @@ function PlaylistModal({
         playlist={newPlaylist}
         authJwtToken={authJwtToken}
         userId={userId}
+        username={username}
         profileUserId={profileUserId}
         updatePlaylists={props.updatePlaylists}
         setModalChildren={props.setModalChildren}
@@ -49,6 +51,7 @@ function PlaylistModal({
           playlist={playlist}
           authJwtToken={authJwtToken}
           userId={userId}
+          username={username}
           profileUserId={profileUserId}
           updatePlaylists={props.updatePlaylists}
           setModalChildren={props.setModalChildren}

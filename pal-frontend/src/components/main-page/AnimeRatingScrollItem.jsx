@@ -7,7 +7,7 @@ function AnimeRatingScrollItem({ anime, ...props }) {
     <div className="anime-scroll-item-outer-div">
       <div
         className="anime-scroll-item-main-div"
-        onClick={() => props.navigateToAnimePage(anime.animeId)}
+        onClick={() => props.navigateToAnimePage(anime.stringId)}
       >
         <h1 className="anime-scroll-item-order">{"#".concat(anime.order)}</h1>
         <img src={anime.imageUrl} className="anime-scroll-item-image" />

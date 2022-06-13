@@ -33,12 +33,12 @@ function MainPage() {
     />
   );
 
-  function navigateToAnimePage(animeId) {
-    navigate(`/anime/${animeId}`);
+  function navigateToAnimePage(stringId) {
+    navigate(`/anime/${stringId}`);
   }
 
-  function navigateToUserPage(userId) {
-    navigate(`/user/${userId}`);
+  function navigateToUserPage(username) {
+    navigate(`/user/${username}`);
   }
 
   async function refreshRandomAnime() {

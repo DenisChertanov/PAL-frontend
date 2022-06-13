@@ -7,7 +7,8 @@ function AnimePage({ authJwtToken, ...props }) {
   const { id } = useParams();
   const [anime, setAnime] = useState();
   const [animeActivity, setAnimeActivity] = useState({
-    animeId: id,
+    stringId: id,
+    animeId: null,
     mark: 0.0,
     review: "",
     lastWatchedEpisode: 0,

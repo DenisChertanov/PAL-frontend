@@ -6,7 +6,7 @@ import "./css/AnimeBlock.css";
 function AnimeBlock({ anime }) {
   return (
     <div className="anime-block">
-      <Link to={`/anime/${anime.animeId}`}>
+      <Link to={`/anime/${anime.stringId}`}>
         <img
           src={anime.imageUrl}
           width="220px"

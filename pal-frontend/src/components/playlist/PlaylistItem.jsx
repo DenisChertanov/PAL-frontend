@@ -15,6 +15,7 @@ function PlaylistItem({
   playlist,
   authJwtToken,
   userId,
+  username,
   profileUserId,
   ...props
 }) {
@@ -99,7 +100,7 @@ function PlaylistItem({
     <div className="playlist-item-outer-div">
       <div className="playlist-item-div">
         <Link
-          to={`/anime/${playlistItem.anime.animeId}`}
+          to={`/anime/${playlistItem.anime.stringId}`}
           className="playlist-item-div-link"
           onClick={() => {
             props.setIsModalOpen(false);
@@ -160,7 +161,7 @@ function PlaylistItem({
           </div>
         </Link>
 
-        {userId === profileUserId && operationDiv}
+        {username === profileUserId && operationDiv}
       </div>
 
       <hr className="playlist-item-hr" />

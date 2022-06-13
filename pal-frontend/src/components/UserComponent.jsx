@@ -19,6 +19,7 @@ import EmptyListImage from "../img/empty-list-image.png";
 function UserComponent({
   userId,
   profileUserId,
+  username,
   authJwtToken,
   userInfo,
   userStatistic,
@@ -45,7 +46,7 @@ function UserComponent({
   );
 
   let lastWatchedList = lastWatchedAnimes.map((anime) => (
-    <Link key={anime.animeId} to={`/anime/${anime.animeId}`}>
+    <Link key={anime.animeId} to={`/anime/${anime.stringId}`}>
       <LastWatchedAnimeBlock key={anime.animeId} anime={anime} />
     </Link>
   ));
@@ -55,6 +56,7 @@ function UserComponent({
       <PlaylistPreview
         key={playlist.animePlaylistId}
         userId={userId}
+        username={username}
         profileUserId={profileUserId}
         animePlaylists={animePlaylists}
         playlist={playlist}
@@ -188,7 +190,7 @@ function UserComponent({
   const playlistsBlock = (
     <div className="horizontal-scroll-view">
       <div className="playlist-image-preview-grid">
-        {userId === profileUserId && addPlaylistButton}
+        {username === profileUserId && addPlaylistButton}
         {playlistsItems}
       </div>
     </div>
@@ -262,7 +264,7 @@ function UserComponent({
 
         <AnimeCountLineChart animeCountDistribution={animeCountDistribution} />
 
-        {userId === profileUserId && logOutDiv}
+        {username === profileUserId && logOutDiv}
       </div>
 
       <div className="outer-second-statistic-div">
@@ -286,7 +288,7 @@ function UserComponent({
         <h1 className="image-preview-all-button-text">Плейлисты</h1>
       </div>
       <div className="image-preview-div" style={{ gridRow: "4" }}>
-        {userId === profileUserId || playlistsItems.length !== 0
+        {username === profileUserId || playlistsItems.length !== 0
           ? playlistsBlock
           : playlistsEmptyBlock}
       </div>

@@ -6,7 +6,7 @@ import pal_logo from "../img/pal-logo.svg";
 import { Link } from "react-router-dom";
 import EmptyUserLogo from "../img/empty-user-logo.png";
 
-function NavBar({ userId, userInfo }) {
+function NavBar({ userId, username, userInfo }) {
   return (
     <React.Fragment>
       <div className="image-box">
@@ -24,7 +24,7 @@ function NavBar({ userId, userInfo }) {
           <button className="navigation-button-people">Люди</button>
         </Link>
 
-        <Link to={`/user/${userId}`}>
+        <Link to={`/user/${userInfo != undefined ? userInfo.userName : null}`}>
           <img
             src={
               userInfo != undefined
